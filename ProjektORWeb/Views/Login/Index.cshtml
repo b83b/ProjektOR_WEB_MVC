@@ -1,14 +1,29 @@
-﻿
+﻿@model Login
 @{
-    Layout = "_Layout2";
+    Layout = null;
 }
 
 
 
 <h1>Zaloguj się</h1>
-
-<form method="post">
-    <input type="text" id="Login1" name="Login1" />
-    <input type="text" id="Password1" name="Password1" />
-    <button type="submit">Zaloguj</button>
-</form>
+@using (var form = Html.BeginForm())
+{
+<table>
+    <tr>
+        <td>Login</td>
+        <td>@Html.TextBoxFor(Model => Model.Login1)</td>
+    </tr>
+    <tr>
+        <td>Hasło</td>
+        <td>@Html.PasswordFor(Model => Model.Password1)</td>
+    </tr>
+    <tr>
+        <td>
+            <button>Zaloguj</button>
+        </td>
+        
+    </tr>
+    
+</table>
+    
+}   

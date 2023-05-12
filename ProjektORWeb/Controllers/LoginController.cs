@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjektORWeb.Models;
 
 namespace ProjektORWeb.Controllers
 {
@@ -6,11 +7,24 @@ namespace ProjektORWeb.Controllers
     {
         public IActionResult Index()
         {
+            Login model = new Login();
             return View();
         }
-        public IActionResult BZRD()
+
+        
+
+        [HttpPost]
+        public IActionResult Index(Login model)
         {
-            return View();
+            if (model.Login1 == "admin" || model.Password1 == "admin1")
+            {
+                return Redirect("http://localhost:5272/Projektor");
+            }
+            
+         return View("BadLog");           
+            
         }
+
+        
     }
 }
