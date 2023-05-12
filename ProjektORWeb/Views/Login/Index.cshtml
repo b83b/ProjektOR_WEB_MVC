@@ -1,15 +1,14 @@
-﻿@*    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-    ------------------------------------Login-----------------------------------------
-*@
+﻿
+@{
+    Layout = "_Layout2";
+}
 
 
-<h1>Logowanie</h1>
 
-<p>
-    <ul>
-        @for (int i=0; i<10; i++)
-        {
-            <li>Element @i</li>
-        }
-    </ul>
-</p>
+<h1>Zaloguj się</h1>
+
+<form method="post">
+    <input type="text" id="Login1" name="Login1" />
+    <input type="text" id="Password1" name="Password1" />
+    <button type="submit">Zaloguj</button>
+</form>

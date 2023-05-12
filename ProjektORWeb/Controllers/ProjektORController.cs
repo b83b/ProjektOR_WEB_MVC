@@ -12,17 +12,16 @@ namespace ProjektORWeb.Controllers
 
             var s1 = new ProjektOR
             {
-                Id = 5,
-                LastName = "Jaś",
-                Email = "jjjjj@wp.pl"
+                
+                
 
             };
 
             var s2 = new ProjektOR
             {
-                Id = 6,
-                LastName = "Witek",
-                Email = "wwwww@wp.pl"
+                
+                NumerProjektu = 111,
+                Rok = 2020
 
             };
 
@@ -44,9 +43,9 @@ namespace ProjektORWeb.Controllers
             {
                 projekt = new ProjektOR
                 {
-                    Id = 5,
-                    LastName = "Jaś",
-                    Email = "jjjjj@wp.pl"
+                    
+                    NumerProjektu = 4566,
+                    Rok = 2021
 
                 };
             }            
@@ -54,9 +53,7 @@ namespace ProjektORWeb.Controllers
             {
                projekt = new ProjektOR
                 {
-                    Id = 6,
-                    LastName = "Witek",
-                    Email = "wwwww@wp.pl"
+                    
 
                 }; 
 

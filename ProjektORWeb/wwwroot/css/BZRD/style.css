@@ -1,0 +1,133 @@
+body {
+    font-family: 'Abel', sans-serif;
+    background-color: rgb(207, 187, 187);
+    /* background-color: #eaeaea; */
+
+}
+nav {
+    background-color:  #2d4171;
+    display: flex;
+    /* background-color:  rgb(9, 147, 255); */
+    border-radius: 0 0 45px 0;
+    
+}
+.nav-syrenka {
+    display:flex;
+    justify-content: center;
+    width: 12vw;
+
+}
+
+.nav {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    color: white;
+    width: 80vw;
+    height: 70px;
+    /* margin-left: 12vw;   */
+}
+
+.nav-menu-top {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    text-decoration: none;
+    
+}
+
+.nav-menu-top a {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.nav-menu-top a:hover {
+    transform: scale(0.95);
+    color: black;
+    
+}
+
+.nav-logo {
+    font-size: 40px;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+}
+
+.container .menu-left {
+    /* background-color:rgb(9, 147, 255); */
+    background-color: #2d4171;
+    /* border-radius: 0 45px 0 0; */
+}
+
+.menu-left {
+    display: flex;
+    justify-content: center;
+    width:12vw; 
+    height: calc(100vh - 70px);
+}
+
+.menu-left a {
+    text-decoration: none;
+    /* font-weight: bold; */
+    transition: 0.1s;
+    font-size: 20px;
+    color: white;
+}
+
+.menu-left a:hover {
+    transform: scale(0.9);
+    color: red;
+}
+
+.menu-left-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* margin: 15px 20px 0 20px; */
+    height: 30%;
+    margin: 20px 5px;
+    /* background-color: ; */
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.working-window {
+    display: flex;
+    justify-content: center;
+    width:85vw; 
+    height: calc(100vh - 70px);
+}
+
+.working-window_1 {
+    background-color: #004461;
+    height: 30%;
+    display: grid;
+    margin: 20px;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 50px;
+    width: 86vw;
+    border-radius: 30px;
+
+}
+
+.working-window_1 h2 {
+    margin: 20px;
+    border-radius: 15px;
+    padding: 10px 20px; 
+    transition: 0.15s;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(17, 36, 64);
+    transition: 0.15s;
+    
+}
+
+.working-window_1 h2:hover {
+    transform: scale(0.9);
+    
+}
+

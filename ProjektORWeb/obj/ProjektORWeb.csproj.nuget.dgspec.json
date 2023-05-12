@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\test_2_praca\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj": {}
+    "D:\\API\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj": {}
   },
   "projects": {
-    "C:\\test_2_praca\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj": {
+    "D:\\API\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\test_2_praca\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj",
+        "projectUniqueName": "D:\\API\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj",
         "projectName": "ProjektORWeb",
-        "projectPath": "C:\\test_2_praca\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj",
-        "packagesPath": "C:\\Users\\luka\\.nuget\\packages\\",
-        "outputPath": "C:\\test_2_praca\\ProjektOR_WEB_MVC\\ProjektORWeb\\obj\\",
+        "projectPath": "D:\\API\\ProjektOR_WEB_MVC\\ProjektORWeb\\ProjektORWeb.csproj",
+        "packagesPath": "C:\\Users\\Luka\\.nuget\\packages\\",
+        "outputPath": "D:\\API\\ProjektOR_WEB_MVC\\ProjektORWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\luka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Luka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

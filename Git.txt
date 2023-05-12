@@ -1,0 +1,5 @@
+Wyłączenie certyfikatu:
+git -c http.sslVerify=false clone [URL github]
+
+Włączenie certyfikatu:
+git config --global http.sslVerify true

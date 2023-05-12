@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BZRD</title>
+    
+
+    <link rel="stylesheet" href="~/css/BZRD/style.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <div class="nav-syrenka">
+            <img src="~/css/BZRD/miasto_stoleczne_warszawa_cale.jpg" height="70px" alt="Syrenka">
+        </div>
+        <div class="nav">
+            <h1 class="nav-logo">Biuro Zarządzania Ruchem Drogowym</h1>
+            <div class="nav-menu-top">
+                
+                    <a href="/">Pomoc</a>
+                        <a href="mailto:lsnopek@um.warszawa.pl">Napisz</a>
+            </div>
+        </div>
+    </nav>
+    <section class="container">
+        <div class="menu-left">
+            <div class="menu-left-top">
+                <a href="/">Strona główna</a>
+                <a href="/ProjektOR">Projekty OR</a>
+                <a href="https://umsw.sharepoint.com/sites/msteams_46c5f9_648647/Skany/Forms/AllItems.aspx">Skany</a>
+                <a href="https://umsw.sharepoint.com/sites/msteams_46c5f9_648647-Przestrzen_Dyskowa_BZRD/Przestrzen_Dyskowa_BZRD/Forms/AllItems.aspx">Przestrzeń Dyskowa</a>
+                <a href="#">Kosz</a>
+            </div>
+        </div>
+        <div class="working-window">
+            <div class="working-window_1">
+            @RenderBody()
+            </div>
+        </div>
+
+
+
+    </section>
+    
+</body>
+</html>
