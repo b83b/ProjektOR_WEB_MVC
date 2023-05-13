@@ -1,0 +1,30 @@
+﻿@* ---------------------------------PROJEKTOR---------------------------*@
+
+@*Tego oczekuje - Listy studnetów które prezkażemy z kontrolera *@
+@model List<ProjektOR>          
+
+<a href="/ProjektOr/create" class="btn">Dodaj projekt</a>
+<table class="highlight">
+    <thead>
+        <tr>
+            <td>NumerProjektu</td>
+            <td>Rok</td>
+            <td>Hiperlacze</td>
+            <td>Szczegóły</td>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.NumerProjektu</td>
+                <td>@x.Rok</td>
+                <td>@x.Hiperlacze</td>
+                <td>
+                    <a class="waves-effect waves-light btn" 
+                        href="/ProjektOR/details/@x.Id">Wyświetl</a>
+                </td>
+            </tr>            
+        }
+    </tbody>
+</table>

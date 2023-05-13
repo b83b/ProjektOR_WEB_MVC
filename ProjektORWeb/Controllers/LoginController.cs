@@ -16,7 +16,7 @@ namespace ProjektORWeb.Controllers
         [HttpPost]
         public IActionResult Index(Login model)
         {
-            if (model.Login1 == "admin" || model.Password1 == "admin1")
+            if (model.Login1 == "admin" && model.Password1 == "admin1" || model.Password1 == null) //POPRAWIĆ - na czas testów
             {
                 return Redirect("http://localhost:5272/Projektor");
             }

@@ -8,7 +8,7 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult Index()
         {
-            
+
             return View();
         }
 
@@ -17,19 +17,25 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult Opcje()
         {
+
+            return View();
+        }
+
+        public IActionResult PokazProjekty()
+        {
             //1. Pobranie danych (zazwyczaj z BD)
             var projekt = new List<ProjektOR>();
 
             var s1 = new ProjektOR
             {
-                
-                
+
+
 
             };
 
             var s2 = new ProjektOR
             {
-                
+
                 NumerProjektu = 111,
                 Rok = 2020
 
@@ -44,46 +50,48 @@ namespace ProjektORWeb.Controllers
 
             //2.2 Dane silnie typowane (bezposrednio w View()
             return View(projekt);
-        }
 
-        public IActionResult Details(int id)
-        {
-            ProjektOR projekt = null;
-            if (id == 5)
+
+        }
+            public IActionResult Details(int id)
             {
-                projekt = new ProjektOR
+                ProjektOR projekt = null;
+                if (id == 5)
                 {
-                    
-                    NumerProjektu = 4566,
-                    Rok = 2021
+                    projekt = new ProjektOR
+                    {
+
+                        NumerProjektu = 4566,
+                        Rok = 2021
+
+                    };
+                }
+                else if (id == 6)
+                {
+                    projekt = new ProjektOR
+                    {
+
+
+                    };
 
                 };
-            }            
-            else if (id == 6)
+                return View(projekt);
+
+            }
+
+            public IActionResult Create()
             {
-               projekt = new ProjektOR
-                {
-                    
 
-                }; 
+                return View();
+            }
 
-            };
-            return View(projekt);
-
-        }
-
-        public IActionResult Create() 
-        { 
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create (ProjektOR nowyProjekt)
-        {
-            //Walidacja po stronie serwera
-            //dodanie projektu do bazy
-            return RedirectToAction("Index");
+            [HttpPost]
+            public IActionResult Create(ProjektOR nowyProjekt)
+            {
+                //Walidacja po stronie serwera
+                //dodanie projektu do bazy
+                return RedirectToAction("Index");
+            }
         }
     }
-}
+

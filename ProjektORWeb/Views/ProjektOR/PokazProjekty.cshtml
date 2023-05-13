@@ -1,0 +1,23 @@
+﻿@model List<ProjektOR>
+
+   <table calss="highlight striped">
+       <thead>
+           <tr>
+               <td>Numer projektu</td>
+               <td>Rok</td>
+           </tr>
+       </thead>
+       <tbody>
+        @foreach (var projekt in Model)
+        {         
+            <tr>
+                <td>@projekt.NumerProjektu</td>
+                <td>@projekt.Rok</td>
+            </tr>
+            
+            
+        }
+        
+    </tbody>
+   </table>
+   <a href="/Projektor/Opcje">Wróć do wyboru opcji</a>
