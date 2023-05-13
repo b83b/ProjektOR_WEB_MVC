@@ -1,23 +1,35 @@
 ﻿@model List<ProjektOR>
 
-   <table calss="highlight striped">
-       <thead>
-           <tr>
-               <td>Numer projektu</td>
-               <td>Rok</td>
-           </tr>
-       </thead>
-       <tbody>
-        @foreach (var projekt in Model)
-        {         
-            <tr>
-                <td>@projekt.NumerProjektu</td>
-                <td>@projekt.Rok</td>
-            </tr>
-            
-            
-        }
+
+    <div class="working-window">
+        <div class="working-window_1">
+            <a href="#">Dodaj projekt</a>
+            <a href="#">Usuń projekt</a>
+            <a href="#">Edytuj projekt</a>
+            <a href="#">Wyszukaj projekt</a>
+            <a href="/Projektor/Opcje" style="background-color: indianred">Wróć do wyboru opcji</a>     
         
-    </tbody>
-   </table>
-   <a href="/Projektor/Opcje">Wróć do wyboru opcji</a>
+        </div>
+    <table calss="highlight striped">
+        <thead>
+            <tr>
+                <td>Numer projektu</td>
+                <td>Rok</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var projekt in Model)
+            {
+                <tr>
+                    <td>@projekt.NumerProjektu</td>
+                    <td>@projekt.Rok</td>
+                </tr>
+
+
+            }
+
+        </tbody>
+    </table>
+    </div>
+
+   

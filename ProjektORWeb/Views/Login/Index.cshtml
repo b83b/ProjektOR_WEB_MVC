@@ -5,32 +5,44 @@
     Layout = null; ;
 }
 
-
-<section class="login-class">
+<style>
     
-    @using (var form = Html.BeginForm())
-    {
+    div {
         
-        <table>
-            <tr>
-                <td>Login</td>
-                <td>@Html.TextBoxFor(Model => Model.Login1)</td>
-            </tr>
-            <tr>
-                <td>Hasło</td>
-                <td>@Html.PasswordFor(Model => Model.Password1)</td>
-            </tr>
-            <tr>
-                <td>
-                    <button>Zaloguj</button>
-                </td>
-
-            </tr>
-
-        </table>
-        
-
+        padding: 0 15px 0 15px;
+        background-color: #c7c7b2;
+        border-radius: 10px;
     }
-</section>
+</style>
+   
+
+<body>
+    <section class="login-class">
+        <div>
+            @using (var form = Html.BeginForm())
+            {
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Login</td>
+                            <td>@Html.TextBoxFor(Model => Model.Login1)</td>
+                        </tr>
+                        <tr>
+                            <td>Hasło</td>
+                            <td>@Html.PasswordFor(Model => Model.Password1)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button>Zaloguj</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        </div>
+    </section>
+</body>
+
 
   
