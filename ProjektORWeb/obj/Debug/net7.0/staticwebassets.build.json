@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2WT+7A1qHCupx7bTMGmH3dSzNpBcIb8NnB5oBf4UmBw=",
+  "Hash": "IjXZtLM6hbt9ouiHgMbCpN9HUHJ71xPtVdQmESp0lAA=",
   "Source": "ProjektORWeb",
   "BasePath": "_content/ProjektORWeb",
   "Mode": "Default",
@@ -151,23 +151,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\style.css",
-      "SourceId": "ProjektORWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\",
-      "BasePath": "_content/ProjektORWeb",
-      "RelativePath": "css/style.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\favicon.ico",

@@ -29,10 +29,6 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
-    },
-    {
       "Id": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

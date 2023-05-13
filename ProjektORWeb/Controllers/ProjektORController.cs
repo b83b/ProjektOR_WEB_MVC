@@ -5,7 +5,17 @@ namespace ProjektORWeb.Controllers
 {
     public class ProjektORController : Controller
     {
+
         public IActionResult Index()
+        {
+            
+            return View();
+        }
+
+
+
+
+        public IActionResult Opcje()
         {
             //1. Pobranie danych (zazwyczaj z BD)
             var projekt = new List<ProjektOR>();
