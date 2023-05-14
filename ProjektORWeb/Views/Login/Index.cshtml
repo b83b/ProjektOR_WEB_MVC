@@ -1,23 +1,18 @@
 ﻿@model Login
 
-<link rel="stylesheet" href="~/css/BZRD/style.css" asp-append-version="true" />
-@{
-    Layout = null; ;
-}
-
 <style>
-    
-    div {
-        
-        padding: 0 15px 0 15px;
-        background-color: #c7c7b2;
-        border-radius: 10px;
+    .working-window {
+        padding: 0;
     }
 </style>
-   
+
+
+
 
 <body>
+    
     <section class="login-class">
+       
         <div>
             @using (var form = Html.BeginForm())
             {

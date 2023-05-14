@@ -40,6 +40,7 @@ nav {
     text-decoration: none;
     color: white;
     transition: 0.2s;
+    font-family: 'Abel', sans-serif;
 }
 
 .nav-menu-top a:hover {
