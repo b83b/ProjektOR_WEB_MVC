@@ -9,8 +9,21 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult Index()
         {
+            try
+            {
+                
+                var dbContext = new BzrdDbContext();
+                var czyJestWierszTyp = dbContext.Typs.FirstOrDefault();
+                return View();
 
-            return View();
+            }
+            catch
+            {
+                
+                Constans.ConnectionString = "";
+                return Redirect("/");
+            }
+            
         }
 
 
@@ -98,6 +111,7 @@ namespace ProjektORWeb.Controllers
         {
 
             return View();
+            
         }
     }
 }

@@ -7,6 +7,7 @@ namespace ProjektORWeb.Controllers
     {
         public IActionResult Index()
         {
+            Constans.ConnectionString = "";
             Login model = new Login();
             return View();
         }
@@ -16,13 +17,28 @@ namespace ProjektORWeb.Controllers
         [HttpPost]
         public IActionResult Index(Login model)
         {
-            if (model.Login1 == "admin" && model.Password1 == "admin1" || model.Password1 == null) //POPRAWIĆ - na czas testów
+            try
             {
-                return Redirect("http://localhost:5272/Projektor");
+                Constans.ConnectionStr(model.Login1, model.Password1);
+                Console.WriteLine(Constans.ConnectionString);
+                var dbContext = new BzrdDbContext();
+                var czyJestWierszTyp = dbContext.Typs.FirstOrDefault();
+                
+                
             }
+            catch 
+            {
+                
+                Constans.ConnectionString = "";
+                return View("BadLog");
+            }
+
+
             
-         return View("BadLog");           
-            
+            return Redirect("http://localhost:5272/Projektor");
+
+
+
         }
 
         
