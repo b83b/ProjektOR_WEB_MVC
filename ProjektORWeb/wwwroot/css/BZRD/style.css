@@ -1,8 +1,7 @@
 body {
     font-family: 'Abel', sans-serif;
-    background-color: rgb(207, 187, 187);
+    background-color: rgb(221 221 221);
     /* background-color: #eaeaea; */
-
 }
 nav {
     background-color:  #2d4171;
@@ -125,6 +124,7 @@ nav {
         color: white;
         background-color: rgb(17, 36, 64);
         transition: 0.15s;
+        
     }
 
 .working-window_1 h2:hover {

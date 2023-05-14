@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\ProjektORWeb.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\ProjektOR_diagram_encji.png",
+      "PackagePath": "staticwebassets\\css\\BZRD\\ProjektOR_diagram_encji.png"
+    },
+    {
+      "Id": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\glowna.jpg",
+      "PackagePath": "staticwebassets\\css\\BZRD\\glowna.jpg"
+    },
+    {
       "Id": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\miasto_stoleczne_warszawa.jpg",
       "PackagePath": "staticwebassets\\css\\BZRD\\miasto_stoleczne_warszawa.jpg"
     },

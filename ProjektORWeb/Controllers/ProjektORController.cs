@@ -92,6 +92,13 @@ namespace ProjektORWeb.Controllers
             return View(nowyProjekt);
 
         }
+
+
+        public IActionResult DiagramEncji()
+        {
+
+            return View();
+        }
     }
 }
     

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IjXZtLM6hbt9ouiHgMbCpN9HUHJ71xPtVdQmESp0lAA=",
+  "Hash": "jw01LeYRbSRVPV/Lxr+SEMJoVbsMsZGlp2QOWDHT8bk=",
   "Source": "ProjektORWeb",
   "BasePath": "_content/ProjektORWeb",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ProjektORWeb.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\glowna.jpg",
+      "SourceId": "ProjektORWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\",
+      "BasePath": "_content/ProjektORWeb",
+      "RelativePath": "css/BZRD/glowna.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BZRD\\glowna.jpg"
+    },
+    {
       "Identity": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\miasto_stoleczne_warszawa.jpg",
       "SourceId": "ProjektORWeb",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\BZRD\\miasto_stoleczne_warszawa_cale.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\ProjektOR_diagram_encji.png",
+      "SourceId": "ProjektORWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\",
+      "BasePath": "_content/ProjektORWeb",
+      "RelativePath": "css/BZRD/ProjektOR_diagram_encji.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BZRD\\ProjektOR_diagram_encji.png"
     },
     {
       "Identity": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\wwwroot\\css\\BZRD\\style.css",
