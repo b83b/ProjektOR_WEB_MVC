@@ -98,8 +98,9 @@ nav {
 .working-window {
     /*display: flex;*/
     justify-content: center;
-    width:84vw; 
+    width: 84vw;
     height: calc(100vh - 70px);
+    padding: 0 15px 0 15px;
 }
 
 .working-window_1 {      
@@ -109,7 +110,7 @@ nav {
     grid-template-columns: auto auto auto auto auto;
     /*grid-gap: 50px;*/
     width: 84vw;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
     .working-window_1 a {
@@ -129,6 +130,10 @@ nav {
     transform: scale(0.9);
     
 }
+
+    .working-window_1 input:hover {
+        transform: scale(0.8);
+    }
 
 
 .login-class {
@@ -151,6 +156,20 @@ button {
     background-color: rgb(17, 36, 64);
     transition: 0.15s;
     font-family: 'Abel', sans-serif;
+}
+
+.button {
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: 0.15s;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: #939799;
+    transition: 0.15s;
+    font-family: 'Abel', sans-serif;
+    text-decoration: none;
 }
 
 
@@ -588,3 +607,51 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     .input-field .prefix ~ label {
         margin-left: 3rem;
     }
+
+
+
+    /*=========WAVES---------------BUTTON*/
+* Waves v0.6.0
+* http://fian.my.id/Waves
+*
+* Copyright 2014 Alfiana E. Sibuea and other contributors
+* Released under the MIT license
+* https://github.com/fians/Waves/blob/master/LICENSE
+*/
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    -webkit-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
+
+.waves-effect .waves-ripple {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: transform, opacity;
+    transition-property: transform, opacity, -webkit-transform;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none;
+}
+
+

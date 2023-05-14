@@ -2,9 +2,9 @@
 
 namespace ProjektORWeb.Models
 {
-    public class ProjektORDbContext : DbContext //dziedziczenie po DbContext
+    public class BzrdDbContext : DbContext //dziedziczenie po DbContext
     {
-        public ProjektORDbContext() 
+        public BzrdDbContext() 
         { 
         
         }

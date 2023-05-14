@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.VisualBasic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjektORWeb.Models
@@ -18,8 +19,8 @@ namespace ProjektORWeb.Models
         [Required(ErrorMessage = "Pole jest wymagane")]
         public string? Hiperlacze { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        //public DateTime DataWplywu { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public DateTime DataWplywu { get; set; }
 
 
         //public DateTime DataZatwierdzeniaOd { get; set; }
@@ -28,26 +29,26 @@ namespace ProjektORWeb.Models
         //public DateTime DataZatwierdzeniaDo { get; set; }
 
 
-        //[MaxLength(100)]
-        //public string? Uwagi { get; set; }
+        [MaxLength(100)]
+        public string? Uwagi { get; set; }
 
 
         //public int KontynuowaniePoProjekcie { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        //public int? Typ { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public int? Typ { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        //public int? OsobaProwadzaca { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public int? OsobaProwadzaca { get; set; }
 
 
         //public int? OsobaZatwierdzajaca { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        //public int? Status { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public int? Status { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        //[EmailAddress]
-        //public string? Email { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        [EmailAddress]
+        public string? Email { get; set; }
     }
 }

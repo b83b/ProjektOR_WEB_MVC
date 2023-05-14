@@ -22,71 +22,77 @@ namespace ProjektORWeb.Controllers
             return View();
         }
 
-        public IActionResult PokazProjekty()
+        public IActionResult PokazProjekty(string query) //parametr query pochodzi z metody GET - szukaj
         {
             //1. Pobranie danych (zazwyczaj z BD)
-            var dbContext = new ProjektORDbContext();
-            Console.WriteLine(dbContext);
-            Console.WriteLine(dbContext.ProjektOrs);
-
-            var projekty = dbContext.ProjektOrs.ToList();
+            var dbContext = new Models.BzrdDbContext();
+            //WHERE
+            var projekty = dbContext.ProjektOrs
+                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Email).Contains(query)|| (p1.Uwagi).Contains(query))
+                                        .ToList();
 
 
             //2. Przekazanie danych do widoku
             //2.1 ViewBag - dynamiczny typ danych rzadziej
             //ViewBag.Projekt = "Lista studentów";
-
             //2.2 Dane silnie typowane (bezposrednio w View()
             return View(projekty);
 
 
+
+
+
         }
-            public IActionResult Details(int id)
+        public IActionResult Details(int id)
+        {
+            ProjektOR projekt = null;
+            if (id == 5)
             {
-                ProjektOR projekt = null;
-                if (id == 5)
+                projekt = new ProjektOR
                 {
-                    projekt = new ProjektOR
-                    {
 
-                        NumerProjektu = 4566,
-                        Rok = 2021
-
-                    };
-                }
-                else if (id == 6)
-                {
-                    projekt = new ProjektOR
-                    {
-
-
-                    };
+                    NumerProjektu = 4566,
+                    Rok = 2021
 
                 };
-                return View(projekt);
-
             }
-
-            public IActionResult Create()
+            else if (id == 6)
             {
-
-                return View();
-            }
-
-            [HttpPost]
-            public IActionResult Create(ProjektOR nowyProjekt)
-            {
-                //Walidacja
-                if (ModelState.IsValid) // ==True
+                projekt = new ProjektOR
                 {
+
+
+                };
+
+            };
+            return View(projekt);
+
+        }
+
+        public IActionResult Create()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(ProjektOR nowyProjekt)
+        {
+            //Walidacja
+            if (ModelState.IsValid) // ==True
+            {
                 //zapis do bazy danych
-                //powrot do listy projektow
-                    return RedirectToAction("PokazProjekty");
-                }
-                //dodanie projektu do bazy
-                return View (nowyProjekt);
-                
+                var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
+                dbContext.ProjektOrs.Add(nowyProjekt); // dodanie do kolekcji projektów moje pola 
+                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych
+                                         //powrot do listy projektow
+                return RedirectToAction("PokazProjekty");
             }
+            //dodanie projektu do bazy
+            return View(nowyProjekt);
+
         }
     }
+}
+    
 

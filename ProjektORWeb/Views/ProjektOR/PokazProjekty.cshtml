@@ -1,22 +1,46 @@
 ﻿@model List<ProjektOR>
 
-
+  <style>
+    form {
+        display: block;
+        margin-top: 2em;        
+    }
+    input {
+        margin: 0;
+    }
+    button {
+        margin: 5px 0;
+        background-color: rgb(120 147 187);
+    }
+  </style>
     <div class="working-window">
         <div class="working-window_1">
             <a href="create">Dodaj projekt</a>
             <a href="#">Usuń projekt</a>
             <a href="#">Edytuj projekt</a>
-            <a href="#">Wyszukaj projekt</a>
             <a href="/Projektor/Opcje" style="background-color: indianred">Wróć do wyboru opcji</a>     
         
+            @*WYSZUKIWARKA*@
         </div>
+        <form method="get">
+            <label for="query">Nr projektu</label>
+            <input type="text" id="query" name="query"/>
+            <button type="submit">Szukaj</button>
+        </form>
+
     <table class="highlight striped">
         <thead>
-            <tr>
+            <tr style="font-weight: bold" >
                 <td>Numer projektu</td>
-                <td>Rok</td>
-                <td>Hiperłącze</td>
-                <td>Typ</td>
+                <td>Rok</td>                                
+                <td>Data wpływu</td>
+                <td>Uwagi</td>
+                @*<td>Kontynuacja po projekcie (Id)</td>*@
+                <td>Typ (id)</td>
+                <td>Osoba prowadząca (Id)</td>
+                <td>Status (Id)</td>
+                <td>Email prowadzącego</td>
+                <td>Hiperlącze</td>
 
             </tr>
         </thead>
@@ -26,8 +50,16 @@
                 <tr>
                     <td>@projekt.NumerProjektu</td>
                     <td>@projekt.Rok</td>
-                    <td>@projekt.Hiperlacze</td>
-                    @*<td>@projekt.Typ</td>*@
+                    <td>@projekt.DataWplywu</td>
+                    <td>@projekt.Uwagi</td>
+                    <td>@projekt.Typ</td>
+                   @* <td>@projekt.KontynuowaniePoProjekcie</td>*@
+                    <td>@projekt.OsobaProwadzaca</td>
+                    <td>@projekt.Status</td>
+                    <td>@projekt.Email</td>
+                    <td>
+                        <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@projekt.Rok" class="button">Otwórz skan</a>
+                    </td>
                 </tr>
 
 
