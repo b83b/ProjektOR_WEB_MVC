@@ -1,0 +1,7 @@
+---BAZA----
+PROJEKT_OR_API
+
+---Konta_SQL---
+login - admin
+haslo - admin1
+

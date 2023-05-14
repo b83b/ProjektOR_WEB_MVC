@@ -1,12 +1,72 @@
-﻿<h1>Dodaj projekt organizacji ruchu</h1>
+﻿@model ProjektOR
+
+<style>
+    span {
+        color: #1b00ff;
+    }
+</style>
 
 
+<h1>Dodaj projekt organizacji ruchu</h1>
 <form method="post">
-    <input type="text" id="LastName" name="LastName" />
-    <input type="text" Email="Email" name="Email" />
+    
+    <div class="input-field col s6">
+        <label for="NumerProjektu">Nr projektu</label>         
+        <input asp-for="NumerProjektu" type="text" class="validate">  
+        <span asp-validation-for="NumerProjektu"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Rok">Rok</label>
+        <input asp-for="Rok" type="text" class="validate">
+        <span asp-validation-for="Rok"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Hiperlacze">Hiperłącze</label>        
+        <input asp-for="Hiperlacze" type="text" class="validate">
+        <span asp-validation-for="Hiperlacze"></span>
+    </div>
+
+    @*<div class="input-field col s6">
+        <label for="DataWplywu">Data Wpływu</label>       
+        <input asp-for="DataWplywu" type="date" class="validate">
+        <span asp-validation-for="DataWplywu"></span>
+    </div>*@
+
+   @* <div class="input-field col s6">
+        <label for="Uwagi">Uwagi</label>
+        <input asp-for="Uwagi" type="text" class="validate">
+        <span asp-validation-for="Uwagi"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Typ">Typ (int)</label>        
+        <input asp-for="Typ" type="text" class="validate">
+        <span asp-validation-for="Typ"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="OsobaProwadzaca">Osoba Prowadząca (int)</label>
+        <input asp-for="OsobaProwadzaca" type="text" class="validate">
+        <span asp-validation-for="OsobaProwadzaca"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Status">Status (int)</label>        
+        <input asp-for="Status" type="text" class="validate">
+        <span asp-validation-for="Status"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Email">Adres Email</label>
+        <input asp-for="Email" type="email" class="validate">
+        <span asp-validation-for="Email"></span>
+    </div>*@
+
     <div class="working-window_1">
         <button type="submit">Zapisz</button>
-        <a href="/Projektor/opcje">Wróć</a>
-    </div>
-    
+        <a href="/Projektor/PokazProjekty" style="background-color: indianred">Wróć</a>
+    </div>    
+
 </form>
