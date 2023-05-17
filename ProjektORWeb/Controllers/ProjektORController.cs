@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
 
 //2 commit
@@ -14,7 +15,7 @@ namespace ProjektORWeb.Controllers
                 
                 var dbContext = new BzrdDbContext();
                 var czyJestWierszTyp = dbContext.Typs.FirstOrDefault();
-                return View();
+                
 
             }
             catch
@@ -23,7 +24,7 @@ namespace ProjektORWeb.Controllers
                 Constans.ConnectionString = "";
                 return Redirect("/");
             }
-            
+            return View();
         }
 
 
@@ -102,9 +103,30 @@ namespace ProjektORWeb.Controllers
                 return RedirectToAction("PokazProjekty");
             }
             //dodanie projektu do bazy
+            Console.WriteLine(nowyProjekt.NumerProjektu);
+            Console.WriteLine(nowyProjekt.Rok);
+            Console.WriteLine(nowyProjekt.DataWplywu);
+            Console.WriteLine(nowyProjekt.Typ);
+            Console.WriteLine(nowyProjekt.OsobaProwadzaca);
+            Console.WriteLine(nowyProjekt.Status);
+            Console.WriteLine(nowyProjekt.Uwagi);
+            
             return View(nowyProjekt);
 
         }
+
+        
+        //public IActionResult Delete(int id) 
+        //{
+        //    var BzrdDbContext = new Models.BzrdDbContext();  //połązcenie
+        //    var projektToDelete = new ProjektOR();          //stworz obiekt projekt
+        //    projektToDelete.Id = id;                        //przypisz mu Id , ktore dostanie z widoku
+
+        //    BzrdDbContext.ProjektOrs.Attach(projektToDelete);   //add by dodał attach mowi ze on juz istnieje i go nie dodaje (musi zaistnień projekt w tym kontekscie)
+        //    BzrdDbContext.ProjektOrs.Remove(projektToDelete);   //wyslij do bazy przez dbContext żadanie usunięcia projektu z kolekcji projektów
+        //    BzrdDbContext.SaveChanges();
+        //    return RedirectToAction("/");
+        //}
 
 
         public IActionResult DiagramEncji()

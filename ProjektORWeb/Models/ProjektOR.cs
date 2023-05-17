@@ -16,7 +16,7 @@ namespace ProjektORWeb.Models
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int? Rok { get; set; }
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
+        
         public string? Hiperlacze { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
