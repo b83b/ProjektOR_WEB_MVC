@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjektORWeb.Models
 {
+    
     [Table("ProjektOR")]
     public class ProjektOR
     {
