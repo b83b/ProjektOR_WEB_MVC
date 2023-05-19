@@ -12,7 +12,8 @@ namespace ProjektORWeb.Models
 
         public DbSet<ProjektOR> ProjektOrs { get; set; } // kolekcja - zbior elementow (reprezentuje tabelke z bazy danych)
 
-        public DbSet<ProjektOR> Typs { get; set; }
+        //public DbSet<ProjektOR> Typs { get; set; }
+        public DbSet<Type> Typs { get; set; }
 
 
         //string ConnectionStringWin = "Data Source=DESKTOP-BBU712F;Initial Catalog=ProjektOR;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
@@ -22,5 +23,18 @@ namespace ProjektORWeb.Models
             optionsBuilder.UseSqlServer(Constans.ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
+
+
+        ////JEDEN DO WIELU!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Type>(eb =>
+        //    {
+        //        eb.HasMany(t => t.ProjektOR)
+        //         .WithOne(p => p.Typ)
+        //         .HasForeignKey(p => p.TypId);
+        //    });
+        //}
+
     }
 }
