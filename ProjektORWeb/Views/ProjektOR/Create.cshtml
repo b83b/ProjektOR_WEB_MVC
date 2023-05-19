@@ -34,11 +34,29 @@
         <span asp-validation-for="Uwagi"></span>
     </div>*@
 
+
+   @* -------------ok-------------
     <div class="input-field col s6">
         <label for="Typ">Typ (int)</label>        
         <input asp-for="Typ" type="text" class="validate">
         <span asp-validation-for="Typ"></span>
     </div>
+    --------------ok--------------*@
+
+@*    ---TYP LISTA-----*@
+    <div class="input-field col s6">
+        <select id="Typ" name="Typ">
+            <option value="1">Stała</option>
+            <option value="2">Czasowa</option>
+            <option value="3">OS</option>
+            <option value="4">Opinia</option>
+        </select>
+        <label for="Typ">Typ (int)</label>
+        <input asp-for="Typ" type="text" class="validate">
+        <span asp-validation-for="Typ"></span>
+    </div>
+    @*---TYP LISTA-----*@
+
 
     @*<div class="input-field col s6">
         <label for="KontynuowaniePoProjekcie">Kont. po proj. (int)</label>

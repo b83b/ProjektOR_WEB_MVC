@@ -41,6 +41,7 @@
                 <td>Status (Id)</td>
                 <td>Email prowadzącego</td>
                 <td>Hiperlącze</td>
+                <td>Usuń projekt</td>
                
 
             </tr>
@@ -55,20 +56,20 @@
                     <td>@projekt.Rok</td>
                     <td>@projekt.DataWplywu</td>
                     <td>@projekt.Uwagi</td>
-                    <td>@projekt.Typ</td>
+                    <td>@projekt.Typ.Value</td>
                    @* <td>@projekt.KontynuowaniePoProjekcie</td>*@
                     <td>@projekt.OsobaProwadzaca</td>
                     <td>@projekt.Status</td>
                     <td>@projekt.Email</td>
                     <td>
-                        @*Jak dodać zmienną (wyciąć indeksy ze stringa/int)*@
+                        @*Jak dodać zmienną (wyciąć indeksy ze stringa/int np.: int x = 2021, int y = x[-2:])*@
                         <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@projekt.Rok" class="button">Otwórz skan</a>
                     </td>
-                    @*<td>
-                        <form action="PokazProjekty/delete/@projekt.Id" method="post">
+                    <td>
+                        <form action="delete/@projekt.Id" method="post">
                             <button type="submit">Usuń</button>
                         </form>
-                    </td>*@
+                    </td>
                 </tr>
 
 
