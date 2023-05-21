@@ -42,7 +42,7 @@ namespace ProjektORWeb.Controllers
             var dbContext = new Models.BzrdDbContext();
             //WHERE
             var projekty = dbContext.ProjektOrs
-                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Email).Contains(query)|| (p1.Uwagi).Contains(query))
+                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
                                         .ToList();
 
 

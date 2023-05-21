@@ -11,14 +11,14 @@ namespace ProjektORWeb
 
 
         //SQL LOGIN-----------------DOM
-        //public static string ConnectionStr(string login, string haslo)
-        //{
-        //    ConnectionString = $"Data Source=DESKTOP-BBU712F; Initial Catalog=ProjektOR;User ID={login};Password={haslo}; " +
-        //    "Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;" +
-        //    " Integrated Security=False; TrustServerCertificate=True";
+        public static string ConnectionStr(string login, string haslo)
+        {
+            ConnectionString = $"Data Source=DESKTOP-9ETQFCN\\SQLEXPRESS01; Initial Catalog=ProjektOR;User ID={login};Password={haslo}; " +
+            "Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;" +
+            " Integrated Security=False; TrustServerCertificate=True";
 
-        //    return ConnectionString;
-        //}
+            return ConnectionString;
+        }
         //--------------------------------------------------------------------------------
 
 
@@ -34,13 +34,13 @@ namespace ProjektORWeb
         //Data Source = DESKTOP - BBU712F; Initial Catalog = ProjektOR; Integrated Security = True; Connect Timeout = 30; Encrypt=False;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False
 
         //WIN LOGIN - pd3935------------------------------------------------------------
-        public static string ConnectionStr(string login, string haslo)
-        {
-            ConnectionString = $"Data Source = db-mssql; Initial Catalog=pd3935; Integrated Security = True; Connect Timeout = 30; " +
-                $"Encrypt=False;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False";
+        //public static string ConnectionStr(string login, string haslo)
+        //{
+        //    ConnectionString = $"Data Source = db-mssql; Initial Catalog=pd3935; Integrated Security = True; Connect Timeout = 30; " +
+        //        $"Encrypt=False;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False";
 
-            return ConnectionString;
-        }
+        //    return ConnectionString;
+        //}
         //--------------------------------------------------------------------
         //SqlConnection con = new SqlConnection(ConnectionString);
         //SqlCommand com = new SqlCommand();

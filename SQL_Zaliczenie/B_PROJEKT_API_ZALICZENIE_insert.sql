@@ -19,7 +19,7 @@ VALUES ('Sta³a'),
 
 
 ---ZARZADCA DROGI ---------------------------------------------------------------------------------------------------------------
-INSERT INTO Zarzadca_drogi (Nazwa)
+INSERT INTO ZarzadcaDrogi (Nazwa)
 VALUES ('Zarz¹d Dróg Miejskich'),
 ('Zarz¹d Terenów Publicznych'),
 ('Zarz¹d Transportu Miejskiego'),
@@ -54,7 +54,7 @@ VALUES ('Wydzia³ Organizacji Ruchu','ZR-OR'),
 
 
 --STANOWISKO---------------------------------------------------------------------------------------------------------------
-INSERT INTO Stanowisko(nazwa)
+INSERT INTO Stanowisko(Nazwa)
 VALUES ('Podinspektor'),
 		('Specjalista'),
 		('Inspektor'),
@@ -67,23 +67,23 @@ VALUES ('Podinspektor'),
 
 
 --OSOBA PRACA---------------------------------------------------------------------------------------------------------------
-INSERT INTO Osoba_praca (Imie, Nazwisko, Data_zatrudnienia, Symbol_w_systemie, Wydzial_id, Stanowisko_id)
-				VALUES ('Jan', 'Kowalski', '2022-04-15', 'JAK', 1,4 ),
-					   ('Pawe³', 'Nowak', '2021-04-15', 'PAN', 2,3 )
+INSERT INTO OsobaPraca (Imie, Nazwisko, DataZatrudnienia, Symbol, Wydzial, Stanowisko, Email)
+				VALUES ('Jan', 'Kowalski', '2022-04-15', 'JAK', 1,4, 'jank@wp.pl' ),
+					   ('Pawe³', 'Nowak', '2021-04-15', 'PAN', 2,3, 'paweln@interia.pl' )
 
 
 --PROJEKT OR---------------------------------------------------------------------------------------------------------------
-INSERT INTO Projekt_OR (
-    Numer_projektu, 
-	Rok, 
-	Data_wplywu, 
-	Data_zatwierdzenia_od, 
-	Data_zatwierdzenia_do, 
+INSERT INTO ProjektOR (
+    NumerProjektu, 
+	Rok,
+	Hiperlacze,	
+	DataWplywu, 
+	DataZatwierdzeniaOd, 
+	DataZatwierdzeniaDo, 
 	Uwagi,  
-	Typ_id, 
-	id_Osoba_praca_prowadzacy, 
-	id_Osoba_praca_zatwierdzajacy, 
-	Status_id,
-	Email)
-VALUES (300, 2023,'2023-03-12', '2023-04-15', '2024-04-15', 'brak uwag',1, 2,2,1, 'asd@wp.pl')
+	Typ, 
+	OsobaProwadzaca, 
+	OsobaZatwierdzajaca, 
+	Status)
+VALUES (300, 2023, 'wp.pl','2023-03-12', '2023-04-15', '2024-04-15', 'brak uwag',1, 2,2,1)
 

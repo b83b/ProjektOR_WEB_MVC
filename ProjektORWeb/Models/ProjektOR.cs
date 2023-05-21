@@ -40,9 +40,9 @@ namespace ProjektORWeb.Models
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int? Status { get; set; }
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        [EmailAddress]
-        public string? Email { get; set; }
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        //[EmailAddress]
+        //public string? Email { get; set; }
 
 
         //-----RELACJE z TYPEM (1 do WIELU)-----------------------
