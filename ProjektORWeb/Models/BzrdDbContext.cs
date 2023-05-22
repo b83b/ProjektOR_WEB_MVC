@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjektORWeb.ViewModels;
 using System;
 
 namespace ProjektORWeb.Models
@@ -12,8 +13,11 @@ namespace ProjektORWeb.Models
 
         public DbSet<ProjektOR> ProjektOrs { get; set; } // kolekcja - zbior elementow (reprezentuje tabelke z bazy danych)
 
-        //public DbSet<ProjektOR> Typs { get; set; }
         public DbSet<Type> Typs { get; set; }
+
+        public DbSet<Status> Statuss { get; set; }
+
+       
 
 
         //string ConnectionStringWin = "Data Source=DESKTOP-BBU712F;Initial Catalog=ProjektOR;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";

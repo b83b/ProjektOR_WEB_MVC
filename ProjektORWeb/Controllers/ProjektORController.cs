@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
 using ProjektORWeb.ViewModels;
+using System;
 
 //2 commit
 namespace ProjektORWeb.Controllers
@@ -41,18 +42,37 @@ namespace ProjektORWeb.Controllers
         {
             
             var dbContext = new Models.BzrdDbContext();
+
             var projektyOR = dbContext.ProjektOrs.ToList();
             var typyProj = dbContext.Typs.ToList();
+            var statusProj = dbContext.Statuss.ToList();
 
-            var projektTyp = new TypsProjektViewModel();
+            var projektTyp = new TypsProjektStatusOsobaViewModel();
             projektTyp.ProjektORs = projektyOR;
             projektTyp.Typs = typyProj;
+            projektTyp.Statuses = statusProj;
 
-            //nieaktualne
-            var projekty = dbContext.ProjektOrs
-                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
-                                        .ToList();
-                      
+
+
+            //var result = projektTyp.Typs.Join(projektTyp.ProjektORs)
+            //                      .Where(st => st.Uwagi =="3");
+
+
+            //var result = from col1 in dbContext.ProjektOrs
+            //             join col2 in dbContext.TypsProjektViewModel
+            //             where col1.Typ == col2.Id
+            //             select new TypsProjektViewModel
+            //             {
+            //                 ProjektORs = col2.Typ,
+            //                 Typs = col1.NumerProjektu 
+            //             };
+
+           
+            //var projekty = dbContext.ProjektOrs
+            //                            .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
+            //                            .ToList();
+
+
             return View(projektTyp);
 
 

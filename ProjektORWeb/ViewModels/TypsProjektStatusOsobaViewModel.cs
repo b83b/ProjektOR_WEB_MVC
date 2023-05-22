@@ -2,10 +2,12 @@
 
 namespace ProjektORWeb.ViewModels
 {
-    public class TypsProjektViewModel
+    public class TypsProjektStatusOsobaViewModel
     {
         public List<ProjektOR> ProjektORs { get; set; }
 
         public List<Models.Type> Typs { get; set; }
+
+        public List<Status> Statuses { get; set; }
     }
 }

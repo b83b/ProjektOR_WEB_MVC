@@ -30,6 +30,7 @@ namespace ProjektORWeb.Controllers
             {
                 
                 Constans.ConnectionString = "";
+
                 return View("BadLog");
             }
 

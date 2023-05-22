@@ -49,8 +49,10 @@ namespace ProjektORWeb.Models
 
         [ForeignKey(nameof(Typ))]
         public virtual Type TypNavigation { get; set; } = null!;
-       
-       
+
+        [ForeignKey(nameof(Status))]
+        public virtual Status StatusNav { get; set; } = null!;
+
 
         //-----RELACJE z ZARZADCA (WIELE do WIELU)
         //public virtual ICollection<ZarzadcaProjekt>Zarzadca_drogi_id { get; set; } = new List<Zarzadca> - relacja wiele do wielu ---zarzadca
