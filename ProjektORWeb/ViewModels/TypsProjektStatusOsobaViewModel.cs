@@ -9,5 +9,7 @@ namespace ProjektORWeb.ViewModels
         public List<Models.Type> Typs { get; set; }
 
         public List<Status> Statuses { get; set; }
+
+        public List<OsobaPraca> osobaPracas { get; set; }
     }
 }

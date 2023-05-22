@@ -36,22 +36,32 @@ namespace ProjektORWeb.Models
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int? OsobaProwadzaca { get; set; }
 
+        public int? OsobaZatwierdzajaca { get; set; }
+
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int? Status { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        //[EmailAddress]
-        //public string? Email { get; set; }
-
+        
 
         //-----RELACJE z TYPEM (1 do WIELU)-----------------------
-
+        //FK
+        [Required(ErrorMessage = "Pole jest wymagane")]
         [ForeignKey(nameof(Typ))]
-        public virtual Type TypNavigation { get; set; } = null!;
+        public virtual Type TypNav { get; set; } = null!;
 
+        [Required(ErrorMessage = "Pole jest wymagane")]
         [ForeignKey(nameof(Status))]
         public virtual Status StatusNav { get; set; } = null!;
+
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        [ForeignKey(nameof(OsobaProwadzaca))]
+        public virtual OsobaPraca OsobaPracaProwadzaca { get; set; } = null!;
+
+       
+        [ForeignKey(nameof(OsobaZatwierdzajaca))]
+        public virtual OsobaPraca OsobaPracaZatwierdzajaca { get; set; }
+
 
 
         //-----RELACJE z ZARZADCA (WIELE do WIELU)

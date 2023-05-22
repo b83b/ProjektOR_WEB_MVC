@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjektORWeb.Models
@@ -6,6 +7,7 @@ namespace ProjektORWeb.Models
     [Table("Status")]
     public class Status
     {
+        [Key]
         public int id {  get; set; }
             
 

@@ -36,13 +36,13 @@
                 <td>Numer projektu</td>
                 <td>Rok</td>                                
                 <td>Data wpływu</td>
-                <td>Typ</td>
-                @*<td>Kontynuacja po projekcie (Id)</td>*@
+                <td>Typ</td>                
                 <td>Uwagi</td>
-                <td>Osoba prowadząca (Id)</td>
                 <td>Status</td>                
                 <td>Hiperlącze</td>
-                <td>Usuń projekt</td>       
+                
+                <td>Szczegóły</td>
+                <td>Usuń projekt</td>
             </tr>
         </thead>
         <tbody>
@@ -79,7 +79,7 @@
                     </td>
                     <td>@projekt.Uwagi</td>
                    @* <td>@projekt.KontynuowaniePoProjekcie</td>*@
-                    <td>@projekt.OsobaProwadzaca</td>
+                    
                     <td>
                         @foreach (var projekt2 in Model.Statuses)
                         {
@@ -90,10 +90,15 @@
 
                             }
                         }
-                    </td>                    
+                    </td> 
+                    
                     <td>
                         @*Jak dodać zmienną (wyciąć indeksy ze stringa/int np.: int x = 2021, int y = x[-2:])*@
                         <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@rokDwieOstatnie(projekt.Rok)" class="button">Otwórz skan</a>
+                    </td>
+                    
+                    <td>
+                        <a href="/ProjektOr/Details/@projekt.Id" class="button">Szczegóły</a>
                     </td>
                     <td>
                         <form action="delete/@projekt.Id" method="post">

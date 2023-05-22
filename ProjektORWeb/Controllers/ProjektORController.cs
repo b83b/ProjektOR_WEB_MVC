@@ -43,14 +43,16 @@ namespace ProjektORWeb.Controllers
             
             var dbContext = new Models.BzrdDbContext();
 
-            var projektyOR = dbContext.ProjektOrs.ToList();
+            var projProj = dbContext.ProjektOrs.ToList();
             var typyProj = dbContext.Typs.ToList();
             var statusProj = dbContext.Statuss.ToList();
+            var osobaProj = dbContext.OsobaPracas.ToList(); 
 
             var projektTyp = new TypsProjektStatusOsobaViewModel();
-            projektTyp.ProjektORs = projektyOR;
+            projektTyp.ProjektORs = projProj;
             projektTyp.Typs = typyProj;
             projektTyp.Statuses = statusProj;
+            projektTyp.osobaPracas = osobaProj;
 
 
 
@@ -82,27 +84,17 @@ namespace ProjektORWeb.Controllers
         }
         public IActionResult Details(int id)
         {
-            ProjektOR projekt = null;
-            if (id == 5)
-            {
-                projekt = new ProjektOR
-                {
+            var dbContext = new BzrdDbContext();
+            var projProj = dbContext.ProjektOrs.ToList();            
+            var osobaProj = dbContext.OsobaPracas.ToList();
 
-                    NumerProjektu = 4566,
-                    Rok = 2021
-
-                };
-            }
-            else if (id == 6)
-            {
-                projekt = new ProjektOR
-                {
+            var detale = new TypsProjektStatusOsobaViewModel();
+            detale.ProjektORs = projProj;
+            detale.osobaPracas = osobaProj;
 
 
-                };
 
-            };
-            return View(projekt);
+            return View(detale);
 
         }
 

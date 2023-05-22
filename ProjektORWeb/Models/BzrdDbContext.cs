@@ -17,11 +17,14 @@ namespace ProjektORWeb.Models
 
         public DbSet<Status> Statuss { get; set; }
 
+        public DbSet<OsobaPraca> OsobaPracas { get; set; }
+
+        public DbSet<Stanowisko> Stanowiskoss { get; set; }
+
+        public DbSet<Wydzial> Wydzials { get; set; }
+
        
-
-
-        //string ConnectionStringWin = "Data Source=DESKTOP-BBU712F;Initial Catalog=ProjektOR;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
-        //string ConnectionStringSQL = "Data Source=DESKTOP-BBU712F;Initial Catalog=ProjektOR;User ID=admin;Password=********;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+                
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Constans.ConnectionString);
@@ -29,27 +32,6 @@ namespace ProjektORWeb.Models
         }
 
 
-        ////JEDEN DO WIELU!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Type>(eb =>
-        //    {
-        //        eb.HasMany(t => t.ProjektOR)
-        //         .WithOne(p => p.Typ)
-        //         .HasForeignKey(p => p.TypId);
-        //    });
-        //}
-
-        //OK - moze tez byc w TYP
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<ProjektOR>(entity =>
-        //    {
-        //        entity.HasOne(d => d.TypNavigation).WithMany(p => p.ProjektOrs)
-        //        .HasForeignKey(d => d.Typ)
-        //        .OnDelete(DeleteBehavior.ClientSetNull)
-        //        .HasConstraintName("Projekt_OR_Typ");
-        //    });
-        //}
+        
     }
 }
