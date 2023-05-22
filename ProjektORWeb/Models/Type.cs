@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace ProjektORWeb.Models
 {
     [Table("Typ")]
@@ -9,8 +10,8 @@ namespace ProjektORWeb.Models
         
         public string? Typ { get; set; } //? = null!
 
-        //z automatu szuka TypId 
-        //public List<ProjektOR> ProjektOR { get; set; } = new List<ProjektOR>();
+         
+        public virtual ICollection<ProjektOR> ProjektOrs { get; set; } = new List<ProjektOR>();
 
 
 

@@ -36,5 +36,16 @@ namespace ProjektORWeb.Models
         //    });
         //}
 
+        //OK - moze tez byc w TYP
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ProjektOR>(entity =>
+        //    {
+        //        entity.HasOne(d => d.TypNavigation).WithMany(p => p.ProjektOrs)
+        //        .HasForeignKey(d => d.Typ)
+        //        .OnDelete(DeleteBehavior.ClientSetNull)
+        //        .HasConstraintName("Projekt_OR_Typ");
+        //    });
+        //}
     }
 }

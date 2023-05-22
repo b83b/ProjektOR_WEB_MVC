@@ -1,4 +1,4 @@
-﻿@model List<ProjektOR>
+﻿@model TypsProjektViewModel
 
   <style>
     form {
@@ -28,6 +28,8 @@
             <button type="submit">Szukaj</button>
         </form>
 
+
+    @*TABELKA PROJEKTOW*@
     <table class="highlight striped">
         <thead>
             <tr style="font-weight: bold" >
@@ -40,17 +42,13 @@
                 <td>Osoba prowadząca (Id)</td>
                 <td>Status (Id)</td>                
                 <td>Hiperlącze</td>
-                <td>Usuń projekt</td>
-               
-
+                <td>Usuń projekt</td>       
             </tr>
         </thead>
         <tbody>
-            @foreach (var projekt in Model)
-            {
-                
-                <tr>
-                    
+            @foreach (var projekt in Model.ProjektORs)
+            {              
+                <tr>                   
                     <td>@projekt.NumerProjektu</td>
                     <td>@projekt.Rok</td>
                     <td>@projekt.DataWplywu</td>
@@ -69,12 +67,19 @@
                         </form>
                     </td>
                 </tr>
-
-
             }
-
         </tbody>
     </table>
+    <table class="highlight striped">
+        @foreach (var tt in Model.Typs)
+        {
+            <tr>
+                <td>@tt.Typ</td>
+            </tr>
+            
+        }
+    </table>
+
     </div>
 
    

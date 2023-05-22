@@ -46,13 +46,10 @@ namespace ProjektORWeb.Models
 
 
         //-----RELACJE z TYPEM (1 do WIELU)-----------------------
-        //public Type? Typ { get; set; }
 
-        //public int TypId { get; set; }
-        
-        //public virtual Type Typ { get; set; } //relacja 1/wiele ----Typ
-
-        //public int ? TypId { get; set; }---------------
+        [ForeignKey(nameof(Typ))]
+        public virtual Type TypNavigation { get; set; } = null!;
+       
        
 
         //-----RELACJE z ZARZADCA (WIELE do WIELU)

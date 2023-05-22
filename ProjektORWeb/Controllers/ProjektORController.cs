@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
+using ProjektORWeb.ViewModels;
 
 //2 commit
 namespace ProjektORWeb.Controllers
@@ -38,19 +39,21 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult PokazProjekty(string query) //parametr query pochodzi z metody GET - szukaj
         {
-            //1. Pobranie danych (zazwyczaj z BD)
+            
             var dbContext = new Models.BzrdDbContext();
-            //WHERE
+            var projektyOR = dbContext.ProjektOrs.ToList();
+            var typyProj = dbContext.Typs.ToList();
+
+            var projektTyp = new TypsProjektViewModel();
+            projektTyp.ProjektORs = projektyOR;
+            projektTyp.Typs = typyProj;
+
+            //nieaktualne
             var projekty = dbContext.ProjektOrs
                                         .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
                                         .ToList();
-
-
-            //2. Przekazanie danych do widoku
-            //2.1 ViewBag - dynamiczny typ danych rzadziej
-            //ViewBag.Projekt = "Lista studentów";
-            //2.2 Dane silnie typowane (bezposrednio w View()
-            return View(projekty);
+                      
+            return View(projektTyp);
 
 
 

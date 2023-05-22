@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cpQ9OpYwa+Dj3/7bCoJIN4yowrkTc/aDB/KxX/n1cqZVxukjNU0w2+oQM06Est732P5LH+g4umoc/6fkMueRBQ==",
+  "dgSpecHash": "kDy+l47u+N7o9NJ5xKLSh6PlvlAnEQdYVFGBViL9DjfWSHD+xmYTDsGrbfGO4he5h3ttEt7pjOSLD5SXP3iArA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dom\\Desktop\\API\\ProjektORWeb\\ProjektORWeb.csproj",
+  "projectFilePath": "C:\\Users\\dom\\Desktop\\zapas\\API\\ProjektORWeb\\ProjektORWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dom\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dom\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

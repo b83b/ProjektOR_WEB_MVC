@@ -3467,11 +3467,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dom\\Desktop\\API\\ProjektORWeb\\ProjektORWeb.csproj",
+      "projectUniqueName": "C:\\Users\\dom\\Desktop\\zapas\\API\\ProjektORWeb\\ProjektORWeb.csproj",
       "projectName": "ProjektORWeb",
-      "projectPath": "C:\\Users\\dom\\Desktop\\API\\ProjektORWeb\\ProjektORWeb.csproj",
+      "projectPath": "C:\\Users\\dom\\Desktop\\zapas\\API\\ProjektORWeb\\ProjektORWeb.csproj",
       "packagesPath": "C:\\Users\\dom\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dom\\Desktop\\API\\ProjektORWeb\\obj\\",
+      "outputPath": "C:\\Users\\dom\\Desktop\\zapas\\API\\ProjektORWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dom\\AppData\\Roaming\\NuGet\\NuGet.Config",
