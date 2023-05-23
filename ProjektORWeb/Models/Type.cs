@@ -11,7 +11,7 @@ namespace ProjektORWeb.Models
         [Key]
         public int Id { get; set; } 
         
-        public string? Typ { get; set; } //? = null!
+        public string Typ { get; set; } //? = null!
 
          
         public virtual ICollection<ProjektOR> ProjektOrs { get; set; } = new List<ProjektOR>();

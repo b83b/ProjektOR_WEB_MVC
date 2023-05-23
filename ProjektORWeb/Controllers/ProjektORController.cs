@@ -85,16 +85,32 @@ namespace ProjektORWeb.Controllers
         public IActionResult Details(int id)
         {
             var dbContext = new BzrdDbContext();
-            var projProj = dbContext.ProjektOrs.ToList();            
-            var osobaProj = dbContext.OsobaPracas.ToList();
+            
+            var projProj = dbContext.ProjektOrs;
+            var typProj = dbContext.Typs;
 
-            var detale = new TypsProjektStatusOsobaViewModel();
-            detale.ProjektORs = projProj;
-            detale.osobaPracas = osobaProj;
-
+            //var detale = new TypsProjektStatusOsobaViewModel();
 
 
-            return View(detale);
+
+            var przekazProjekty = projProj
+                                .Join(typProj, pp => pp.Typ, tt => tt.Id,
+                                (pp, tt) => new DetailsProjektViewModel
+                                {
+                                    Identyfikator = pp.Id,
+                                    NrProjektu = pp.NumerProjektu,
+                                    Rok = pp.Rok,
+                                    Typ = tt.Typ
+                                })
+                                .Where(projProj => projProj.Identyfikator == id)
+                                .ToList();
+            //detale.osobaPracas = osobaProj;
+            //detale.Typs = typProj;
+
+
+
+
+            return View(przekazProjekty);
 
         }
 

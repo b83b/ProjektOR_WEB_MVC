@@ -1,4 +1,4 @@
-﻿@model TypsProjektStatusOsobaViewModel
+﻿@model List<DetailsProjektViewModel>
 
 <style>
     input {
@@ -6,38 +6,34 @@
     }
 </style>
 <h1>Dane projektu</h1>
-<div class="working-window">
-    <div class="working-window_1">
-        <table class="highlight striped">
-            <tr>
-                @foreach(var p in Model.ProjektORs)
-                {
-                    <td>Id: @p.Id</td>
-                    <td>Numer Projektu: @p.NumerProjektu</td>                   
-                    <td>  
-                            @*@{string p1 = new Model.osobaPracas} -- TU POPRAWIAĆ
-                            @foreach (var p2 in Model.osobaPracas)
-                            {
-                                if (p.OsobaProwadzaca == p2.id)
-                                {
-                                    @p2.Imie
-                                }
-                                @p2.Email
-                                if (p.OsobaZatwierdzajaca == p2.id)
-                                {
-                                    @p2.Imie
-                                }
-                            }*@
-                    </td>                    
-                    
-                }
-                
-            </tr>
-        </table>      
-        <div class="card-action">
-            <a href="/Projektor/PokazProjekty">Cofnij</a>
-        </div>
 
-    </div>
-    
-</div>
+         
+
+        <table>
+            
+            <tbody>
+                <tr>
+                    
+                    @foreach (var p in Model)
+                    {
+
+                        <td>Id: @p.Identyfikator</td>
+                        <td>NumerProjektu: @p.NrProjektu</td>
+                        <td>Rok: @p.Rok</td>
+                       <td>Typ: @p.Typ</td>
+                        @*<td>Osoba Prowadząca: @p.OsobaPracaProwadzaca.Imie @p.OsobaPracaProwadzaca.Nazwisko</td>*@
+                        @*<td>Osoba Zatwierdzająca: @p.OsobaPracaZatwierdzajaca.Imie @p.OsobaPracaZatwierdzajaca.Nazwisko</td>*@
+                        <td></td>
+
+                    }
+
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/Projektor/PokazProjekty" class="button" style="background-color: indianred">Cofnij</a>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>      
+        
