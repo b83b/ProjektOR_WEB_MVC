@@ -10,6 +10,12 @@
 
         public string? Typ { get; set; }
 
-       
+        public string? OsobaProwImie { get; set; }
+
+        public string? OsobaProwNazw { get; set; }
+
+        public string? EmailProwadzacego { get; set; }
+
+
     }
 }

@@ -10,17 +10,26 @@
          
 
         <table>
-            
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Cały Numer</th>                    
+                    <th>Typ</th>
+                    <th>Prowadzący</th>
+                    <th>Email Prowadzącego</th>
+                </tr>
+            </thead>
             <tbody>
                 <tr>
                     
                     @foreach (var p in Model)
                     {
 
-                        <td>Id: @p.Identyfikator</td>
-                        <td>NumerProjektu: @p.NrProjektu</td>
-                        <td>Rok: @p.Rok</td>
-                       <td>Typ: @p.Typ</td>
+                        <td>@p.Identyfikator</td>
+                        <td>@p.NrProjektu-@p.Rok</td>                        
+                        <td>@p.Typ</td>
+                        <td>@p.OsobaProwImie @p.OsobaProwNazw</td>
+                        <td>@p.EmailProwadzacego</td>
                         @*<td>Osoba Prowadząca: @p.OsobaPracaProwadzaca.Imie @p.OsobaPracaProwadzaca.Nazwisko</td>*@
                         @*<td>Osoba Zatwierdzająca: @p.OsobaPracaZatwierdzajaca.Imie @p.OsobaPracaZatwierdzajaca.Nazwisko</td>*@
                         <td></td>

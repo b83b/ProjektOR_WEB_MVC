@@ -11,5 +11,7 @@ namespace ProjektORWeb.ViewModels
         public List<Status> Statuses { get; set; }
 
         public List<OsobaPraca> osobaPracas { get; set; }
+
+        public string? Query { get; set; }
     }
 }

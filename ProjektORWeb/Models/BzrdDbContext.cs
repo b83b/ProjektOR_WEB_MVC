@@ -6,6 +6,8 @@ namespace ProjektORWeb.Models
 {
     public class BzrdDbContext : DbContext //dziedziczenie po DbContext
     {
+        internal IEnumerable<object> projektTyp;
+
         public BzrdDbContext() 
         { 
         

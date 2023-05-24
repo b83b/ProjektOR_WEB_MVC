@@ -40,47 +40,35 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult PokazProjekty(string query) //parametr query pochodzi z metody GET - szukaj
         {
-            
+            //1. polaczenie do bazy
             var dbContext = new Models.BzrdDbContext();
-
-            var projProj = dbContext.ProjektOrs.ToList();
+            
+            //2. co zwracam
+            var projProj = dbContext.ProjektOrs
+                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
+                                        .ToList();
             var typyProj = dbContext.Typs.ToList();
             var statusProj = dbContext.Statuss.ToList();
-            var osobaProj = dbContext.OsobaPracas.ToList(); 
+            var osobaProj = dbContext.OsobaPracas.ToList();
 
-            var projektTyp = new TypsProjektStatusOsobaViewModel();
-            projektTyp.ProjektORs = projProj;
-            projektTyp.Typs = typyProj;
-            projektTyp.Statuses = statusProj;
-            projektTyp.osobaPracas = osobaProj;
-
-
-
-            //var result = projektTyp.Typs.Join(projektTyp.ProjektORs)
-            //                      .Where(st => st.Uwagi =="3");
+            //3. ViewModel - kontener
+            var pokazAll = new TypsProjektStatusOsobaViewModel();
+            pokazAll.ProjektORs = projProj;
+            pokazAll.Typs = typyProj;
+            pokazAll.Statuses = statusProj;
+            pokazAll.osobaPracas = osobaProj;
+            pokazAll.Query = query;
 
 
-            //var result = from col1 in dbContext.ProjektOrs
-            //             join col2 in dbContext.TypsProjektViewModel
-            //             where col1.Typ == col2.Id
-            //             select new TypsProjektViewModel
-            //             {
-            //                 ProjektORs = col2.Typ,
-            //                 Typs = col1.NumerProjektu 
-            //             };
+            return View(pokazAll);
+            
+                //var projektTyp = new TypsProjektStatusOsobaViewModel();
+                //projektTyp.ProjektORs = projProj;
+                //projektTyp.Typs = typyProj;
+                //projektTyp.Statuses = statusProj;
 
-           
-            //var projekty = dbContext.ProjektOrs
-            //                            .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
-            //                            .ToList();
-
-
-            return View(projektTyp);
-
-
-
-
-
+                //return View(projektTyp);
+            
         }
         public IActionResult Details(int id)
         {
@@ -88,27 +76,25 @@ namespace ProjektORWeb.Controllers
             
             var projProj = dbContext.ProjektOrs;
             var typProj = dbContext.Typs;
-
-            //var detale = new TypsProjektStatusOsobaViewModel();
-
-
+            var pracProj = dbContext.OsobaPracas;
 
             var przekazProjekty = projProj
                                 .Join(typProj, pp => pp.Typ, tt => tt.Id,
-                                (pp, tt) => new DetailsProjektViewModel
+                                (pp, tt) => new {pp, tt})
+                                .Join(pracProj, prac => prac.pp.OsobaProwadzaca, praco => praco.id,
+                                (prac, praco) =>new {prac, praco})
+                                .Select( all => new DetailsProjektViewModel
                                 {
-                                    Identyfikator = pp.Id,
-                                    NrProjektu = pp.NumerProjektu,
-                                    Rok = pp.Rok,
-                                    Typ = tt.Typ
+                                    Identyfikator = all.prac.pp.Id,
+                                    NrProjektu = all.prac.pp.NumerProjektu,
+                                    Rok = all.prac.pp.Rok,
+                                    Typ = all.prac.tt.Typ,
+                                    OsobaProwImie = all.praco.Imie,
+                                    OsobaProwNazw = all.praco.Nazwisko,
+                                    EmailProwadzacego = all.praco.Email
                                 })
                                 .Where(projProj => projProj.Identyfikator == id)
-                                .ToList();
-            //detale.osobaPracas = osobaProj;
-            //detale.Typs = typProj;
-
-
-
+                                .ToList();               
 
             return View(przekazProjekty);
 
@@ -129,15 +115,10 @@ namespace ProjektORWeb.Controllers
                 //zapis do bazy danych
                 var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
                 dbContext.ProjektOrs.Add(nowyProjekt); // dodanie do kolekcji projektów moje pola 
-                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych
-                                         //powrot do listy projektow
-                return RedirectToAction("PokazProjekty");
-            }
-            //dodanie projektu do bazy
-           
-            
+                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
+                return RedirectToAction("PokazProjekty"); //powrot do listy projektow
+            }                    
             return View(nowyProjekt);
-
         }
 
 
