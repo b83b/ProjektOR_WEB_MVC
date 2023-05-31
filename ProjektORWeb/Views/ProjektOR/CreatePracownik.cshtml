@@ -1,0 +1,77 @@
+﻿@model CreatePracownik
+
+<style>
+    span {
+        color: #1b00ff;
+    }
+</style>
+
+
+<h1>Dodaj pracownika</h1>
+<form method="post">
+
+    <div class="input-field col s6">
+        <label for="Imie">Imie</label>
+        <input asp-for="Imie" type="text" class="validate">
+        <span asp-validation-for="Imie"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Nazwisko">Nazwisko</label>
+        <input asp-for="Nazwisko" type="text" class="validate">
+        <span asp-validation-for="Nazwisko"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="DataZatrudnienia">DataZatrudnienia</label>
+        <input asp-for="DataZatrudnienia" type="date" class="validate">
+        <span asp-validation-for="DataZatrudnienia"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="DataOdejscia">DataOdejscia</label>
+        <input asp-for="DataOdejscia" type="text" class="validate">
+        <span asp-validation-for="DataOdejscia"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Symbol">Symbol</label>
+        <input asp-for="Symbol" type="text" class="validate">
+        <span asp-validation-for="Symbol"></span>
+    </div>
+
+   @* LISTY*@
+
+    <div class="input-field col s6">
+        <label for="Stanowiskos">Stanowiskos</label>
+        <div>
+            <select id="Stanowiskos" name="Stanowiskos">
+                @foreach (var st in Model.Stanowiskos)
+                {
+                    <option value="@st.id">@st.Nazwa</option>
+                }
+            </select>
+        </div>
+    </div>
+
+
+    <div class="input-field col s6">
+        <label for="Wydzials">Wydzials</label>
+        <div>
+            <select id="Wydzials" name="Wydzials">
+                @foreach (var wydz in Model.Wydzials)
+                {
+                    <option value="@wydz.id">@wydz.Nazwa</option>
+                }
+            </select>
+        </div>
+    </div>
+
+   
+
+    <div class="working-window_1">
+        <button type="submit">Zapisz</button>
+        <a href="/Projektor/PokazPracownikow" style="background-color: indianred">Wróć</a>
+    </div>
+
+</form>

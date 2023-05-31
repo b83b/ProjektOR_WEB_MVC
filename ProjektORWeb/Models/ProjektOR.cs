@@ -18,7 +18,7 @@ namespace ProjektORWeb.Models
         public int? Rok { get; set; }
 
         
-        public string? Hiperlacze { get; set; }
+        //public string? Hiperlacze { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public DateTime DataWplywu { get; set; }
@@ -28,7 +28,7 @@ namespace ProjektORWeb.Models
         public string? Uwagi { get; set; }
 
 
-        //public int KontynuowaniePoProjekcie { get; set; }
+        
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int? Typ { get; set; }
@@ -47,20 +47,20 @@ namespace ProjektORWeb.Models
         //-----RELACJE z TYPEM (1 do WIELU)-----------------------
         //FK
         
-        [ForeignKey(nameof(Typ))]
-        public virtual Type TypNav { get; set; }
+        //[ForeignKey(nameof(Typ))]
+        //public virtual Type TypNav { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        [ForeignKey(nameof(Status))]
-        public virtual Status? StatusNav { get; set; }
+        ////[Required(ErrorMessage = "Pole jest wymagane")]
+        //[ForeignKey(nameof(Status))]
+        //public virtual Status? StatusNav { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
-        [ForeignKey(nameof(OsobaProwadzaca))]
-        public virtual OsobaPraca? OsobaPracaProwadzaca { get; set; }
+        ////[Required(ErrorMessage = "Pole jest wymagane")]
+        //[ForeignKey(nameof(OsobaProwadzaca))]
+        //public virtual OsobaPraca? OsobaPracaProwadzaca { get; set; }
 
 
-        [ForeignKey(nameof(OsobaZatwierdzajaca))]
-        public virtual OsobaPraca? OsobaPracaZatwierdzajaca { get; set; }
+        //[ForeignKey(nameof(OsobaZatwierdzajaca))]
+        //public virtual OsobaPraca? OsobaPracaZatwierdzajaca { get; set; }
 
 
 

@@ -9,12 +9,12 @@ namespace ProjektORWeb.Models
     public partial class Type
     {
         [Key]
-        public int Id { get; set; } 
-        
-        public string Typ { get; set; } //? = null!
+        public int Id { get; set; }
+
+        public string Typ { get; set; } = null!;
 
          
-        public virtual ICollection<ProjektOR> ProjektOrs { get; set; } = new List<ProjektOR>();
+        //public virtual ICollection<ProjektOR> ProjektOrs { get; set; } = new List<ProjektOR>();
 
 
 

@@ -14,6 +14,6 @@ namespace ProjektORWeb.Models
         public string? Nazwa { get; set; } //? = null!
 
          
-        public virtual ICollection<ProjektOR> ProjektOrs { get; set; } = new List<ProjektOR>();
+        //public virtual ICollection<ProjektOR> ProjektOrs { get; set; } = new List<ProjektOR>();
     }
 }

@@ -1,5 +1,5 @@
 ---BAZA----
-PROJEKT_OR_API
+ProjektOR
 
 ---Konta_SQL---
 login - admin

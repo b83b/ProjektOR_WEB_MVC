@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
 using ProjektORWeb.ViewModels;
 using System;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 //2 commit
 namespace ProjektORWeb.Controllers
@@ -102,8 +103,21 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult Create()
         {
+            var dbContext = new BzrdDbContext();
 
-            return View();
+            
+            var typyProj = dbContext.Typs.ToList();
+            var statusProj = dbContext.Statuss.ToList();
+            var osobaProj = dbContext.OsobaPracas.ToList();
+
+            var przeslij = new CreateTypsStatusOsoba();
+
+            przeslij.Typ = typyProj;
+            przeslij.Status = statusProj;
+            przeslij.OsobaProwadzaca = osobaProj;
+            przeslij.OsobaZatwierdzajaca = osobaProj;
+
+            return View(przeslij);
         }
 
         [HttpPost]
@@ -114,11 +128,25 @@ namespace ProjektORWeb.Controllers
             {
                 //zapis do bazy danych
                 var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
+                //var numer = nowyProjekt.NumerProjektu;
+                //Console.WriteLine(nowyProjekt.NumerProjektu);
+                //var rok = nowyProjekt.Rok;
+                //var dataWplywu = nowyProjekt.DataWplywu;
+                //var uwagi = nowyProjekt.Uwagi;
+                //var typ = nowyProjekt.Typ;
+                //var osobaProwadzaca = nowyProjekt.OsobaProwadzaca;
+                //var status = nowyProjekt.Status;
+
+                //var przeslij = new ProjektOR();
+                //przeslij.NumerProjektu = numer;
+
+
                 dbContext.ProjektOrs.Add(nowyProjekt); // dodanie do kolekcji projektów moje pola 
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
                 return RedirectToAction("PokazProjekty"); //powrot do listy projektow
-            }                    
-            return View(nowyProjekt);
+            }     
+            
+            return Redirect("Create");
         }
 
 
@@ -134,11 +162,69 @@ namespace ProjektORWeb.Controllers
             return RedirectToAction("PokazProjekty");
         }
 
+        public IActionResult PokazPracownikow ()
+        {
+            var dbContext = new BzrdDbContext();
+            var osoba = dbContext.OsobaPracas;
+            var wydzial = dbContext.Wydzials;
+            var stanowisko = dbContext.Stanowiskoss;
+
+            var przekazpracownikow = osoba
+                                     .Join(wydzial, o => o.Wydzial, w => w.id,
+                                     (o, w) => new { o, w })
+                                     .Join(stanowisko, os => os.o.Stanowisko, stan => stan.id,
+                                     (os, stan) => new { os, stan })
+                                     .Select(all => new OsobaStanowiskoWydzial
+                                     {
+                                         Identyfikator = all.os.o.id,
+                                         Imie = all.os.o.Imie,
+                                         Nazwisko = all.os.o.Nazwisko,
+                                         DataZatrudnienia = all.os.o.DataZatrudnienia,
+                                         DataOdejscia = all.os.o.DataOdejsciazPracy,
+                                         Symbol = all.os.o.Symbol,
+                                         Wydzial = all.os.w.Nazwa,
+                                         Stanowisko = all.stan.Nazwa,
+                                         Email = all.os.o.Email
+                                     })
+                                     .ToList();
+            return View(przekazpracownikow);
+        }
+
+
+        public IActionResult CreatePracownik()
+        {
+            var dbContext = new BzrdDbContext();
+
+            var osobaStanowisko = dbContext.Stanowiskoss.ToList();
+            var osobaWydzial = dbContext.Wydzials.ToList();            
+
+            var przeslij = new CreatePracownik();
+            przeslij.Stanowiskos = osobaStanowisko;
+            przeslij.Wydzials = osobaWydzial;  
+            return View(przeslij);
+        }
+
+        [HttpPost]
+        public IActionResult CreatePracownik(OsobaPraca nowyPracownik)
+        {
+            if (ModelState.IsValid) // ==True
+            {
+                //zapis do bazy danych
+                var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
+                dbContext.OsobaPracas.Add(nowyPracownik); // dodanie do kolekcji projektów moje pola 
+                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
+                return RedirectToAction("PokazPracownikow"); //powrot do listy projektow
+            }
+            return View(nowyPracownik);
+        }
+
+
 
         public IActionResult DiagramEncji()
-        {
+        {        
 
             return View();
+                      
             
         }
     }

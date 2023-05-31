@@ -25,7 +25,7 @@ namespace ProjektORWeb
         //WIN LOGIN ---DOM
         public static string ConnectionStr(string login, string haslo)
         {
-            ConnectionString = $"Data Source = DESKTOP-9ETQFCN\\SQLEXPRESS01; Initial Catalog=ProjektOR; Integrated Security = True; Connect Timeout = 30; " +
+            ConnectionString = $"Data Source = db-mssql; Initial Catalog=pd3935; Integrated Security = True; Connect Timeout = 30; " +
                 $"Encrypt=False;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False";
 
             return ConnectionString;

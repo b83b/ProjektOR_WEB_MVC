@@ -1,4 +1,4 @@
-﻿@model ProjektOR
+﻿@model CreateTypsStatusOsoba
 
 <style>
     span {
@@ -28,58 +28,62 @@
         <span asp-validation-for="DataWplywu"></span>
     </div>
 
-    @*<div class="input-field col s6">
+    <div class="input-field col s6">
         <label for="Uwagi">Uwagi</label>
         <input asp-for="Uwagi" type="text" class="validate">
         <span asp-validation-for="Uwagi"></span>
-    </div>*@
+    </div>
+      
 
 
-   @* -------------ok-------------
     <div class="input-field col s6">
-        <label for="Typ">Typ (int)</label>        
-        <input asp-for="Typ" type="text" class="validate">
+        <label for="Typ">Typ</label>
+        <div>
+            <select id="Typ" name="Typ" class="validate">
+                @foreach (var t in Model.Typ)
+                {
+                    <option value="@t.Id">@t.Typ</option>
+                }
+            </select>            
+        </div>  
         <span asp-validation-for="Typ"></span>
     </div>
-    --------------ok--------------*@
-
-@*    ---TYP LISTA-----*@
+   
+       
     <div class="input-field col s6">
-        <select id="Typ" name="Typ">
-            <option value="1">Stała</option>
-            <option value="2">Czasowa</option>
-            <option value="3">OS</option>
-            <option value="4">Opinia</option>
-        </select>
-        <label for="Typ">Typ (int)</label>
-        <input asp-for="Typ" type="text" class="validate">
-        <span asp-validation-for="Typ"></span>
-    </div>
-    @*---TYP LISTA-----*@
-
-
-    @*<div class="input-field col s6">
-        <label for="KontynuowaniePoProjekcie">Kont. po proj. (int)</label>
-        <input asp-for="KontynuowaniePoProjekcie" type="text" class="validate">
-        <span asp-validation-for="Typ"></span>
-    </div>*@
-
-    <div class="input-field col s6">
-        <label for="OsobaProwadzaca">Osoba Prowadząca (int)</label>
-        <input asp-for="OsobaProwadzaca" type="text" class="validate">
-        <span asp-validation-for="OsobaProwadzaca"></span>
+        <label for="OsobaProwadzaca">Osoba Prowadząca</label>
+        <div>
+            <select id="OsobaProwadzaca" name="OsobaProwadzaca">
+                @foreach (var pr in Model.OsobaProwadzaca)
+                {
+                    <option value="@pr.id">@pr.Imie @pr.Nazwisko</option>
+                }
+            </select>
+        </div>
     </div>
 
     <div class="input-field col s6">
-        <label for="Status">Status (int)</label>        
-        <input asp-for="Status" type="text" class="validate">
-        <span asp-validation-for="Status"></span>
+        <label for="Status">Status</label>        
+        <div>
+            <select id="Status" name="Status">
+                @foreach (var st in Model.Status)
+                {
+                    <option value="@st.id">@st.Nazwa</option>
+                }
+            </select>
+        </div>
     </div>
 
     <div class="input-field col s6">
         <label for="OsobaZatwierdzajaca">Osoba Zatwierdzająca</label>
-        <input asp-for="OsobaZatwierdzajaca" type="text" class="validate">
-        <span asp-validation-for="OsobaZatwierdzajaca"></span>
+        <div>
+            <select id="OsobaZatwierdzajaca" name="OsobaZatwierdzajaca">
+                @foreach (var zat in Model.OsobaZatwierdzajaca)
+                {
+                    <option value="@zat.id">@zat.Imie @zat.Nazwisko</option>
+                }
+            </select>
+        </div>
     </div>
 
     <div class="working-window_1">

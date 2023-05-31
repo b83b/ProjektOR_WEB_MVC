@@ -1,0 +1,62 @@
+﻿@model List<OsobaStanowiskoWydzial>
+
+<style>
+    form {
+        display: block;
+        margin-top: 2em;
+    }
+
+    input {
+        margin: 0;
+    }
+
+    button {
+        margin: 5px 0;
+        background-color: rgb(120 147 187);
+    }
+</style>
+<div class="working-window">
+    <div class="working-window_1">
+        <a href="CreatePracownik">Dodaj pracownika</a>        
+        <a href="/Projektor/Opcje" style="background-color: indianred">Wróć do wyboru opcji</a>       
+    </div>   
+
+
+    @*TABELKA Pracowników*@
+    <table class="highlight striped">
+        <thead>
+            <tr style="font-weight: bold">
+                <td>Imie</td>
+                <td>Nazwisko</td>
+                <td>Data zatrudnienia</td>
+                <td>Data Odejścia</td>
+                <td>Symbol</td>
+                <td>Wydzial</td>
+                <td>Stanowisko</td>
+                <td>Email</td>                
+                
+            </tr>
+        </thead>
+        <tbody>            
+            @foreach (var pracownik in Model)
+            {
+
+
+                <tr>
+                    <td>@pracownik.Imie</td>
+                    <td>@pracownik.Nazwisko</td>
+                    <td>@pracownik.DataZatrudnienia</td>
+                    <td>@pracownik.DataOdejscia</td>
+                    <td>@pracownik.Symbol</td>
+                    <td>@pracownik.Wydzial</td>
+                    <td>@pracownik.Stanowisko</td>
+                    <td>@pracownik.Email</td>                    
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
+

@@ -12,10 +12,10 @@ namespace ProjektORWeb.Models
         public int id { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public string Imie { get; set; }
+        public string Imie { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public string Nazwisko { get; set; }
+        public string Nazwisko { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public DateTime DataZatrudnienia { get; set; }
