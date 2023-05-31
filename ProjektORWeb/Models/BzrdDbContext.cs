@@ -25,6 +25,13 @@ namespace ProjektORWeb.Models
 
         public DbSet<Wydzial> Wydzials { get; set; }
 
+        public DbSet<ZarzadcaDrogi> zarzadcaDrogis { get; set; }
+        
+
+        
+
+
+
        
                 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -1,0 +1,7 @@
+
+
+ORM-y====
+1. Microsoft.EntityFramewrokCore
+2. Microsoft.EntityFramewrokCore.SqlServer
+3. Microsoft.EntityFrameworkCore.Tools
+

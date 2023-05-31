@@ -127,7 +127,7 @@ namespace ProjektORWeb.Controllers
             if (ModelState.IsValid) // ==True
             {
                 //zapis do bazy danych
-                var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
+                var dbContext = new BzrdDbContext(); //polaczenie z bazą
                 //var numer = nowyProjekt.NumerProjektu;
                 //Console.WriteLine(nowyProjekt.NumerProjektu);
                 //var rok = nowyProjekt.Rok;
@@ -172,7 +172,7 @@ namespace ProjektORWeb.Controllers
             var przekazpracownikow = osoba
                                      .Join(wydzial, o => o.Wydzial, w => w.id,
                                      (o, w) => new { o, w })
-                                     .Join(stanowisko, os => os.o.Stanowisko, stan => stan.id,
+                                     .Join(stanowisko, os => os.o.Stanowisko, stan => stan.Id,
                                      (os, stan) => new { os, stan })
                                      .Select(all => new OsobaStanowiskoWydzial
                                      {
@@ -210,13 +210,16 @@ namespace ProjektORWeb.Controllers
             if (ModelState.IsValid) // ==True
             {
                 //zapis do bazy danych
-                var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
-                dbContext.OsobaPracas.Add(nowyPracownik); // dodanie do kolekcji projektów moje pola 
+                var dbContext = new BzrdDbContext(); 
+                dbContext.OsobaPracas.Add(nowyPracownik);  
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
-                return RedirectToAction("PokazPracownikow"); //powrot do listy projektow
+                return RedirectToAction("PokazPracownikow"); //powrot do listy pracownikow
             }
             return View(nowyPracownik);
         }
+
+        
+
 
 
 

@@ -9,89 +9,89 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProjektORWeb
 build_property.RootNamespace = ProjektORWeb
-build_property.ProjectDir = C:\Users\luka\Desktop\PROJEKT_OR_API\2_VS\PROJEKT_OR_Web_MVC\ProjektORWeb\ProjektORWeb\
+build_property.ProjectDir = C:\Users\luka\Desktop\PROJEKT_OR_API\2_VS\ProjektORWeb_MVC\ProjektORWeb\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\luka\Desktop\PROJEKT_OR_API\2_VS\PROJEKT_OR_Web_MVC\ProjektORWeb\ProjektORWeb
+build_property.MSBuildProjectDirectory = C:\Users\luka\Desktop\PROJEKT_OR_API\2_VS\ProjektORWeb_MVC\ProjektORWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Home/Index.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Home/Privacy.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Login/BadLog.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Login/BadLog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQmFkTG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Login/Index.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/Create.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/CreatePracownik.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/CreatePracownik.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXENyZWF0ZVByYWNvd25pay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/Details.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/DiagramEncji.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/DiagramEncji.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXERpYWdyYW1FbmNqaS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/Index.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/Opcje.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/Opcje.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXE9wY2plLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/PokazPracownikow.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/PokazPracownikow.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXFBva2F6UHJhY293bmlrb3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/ProjektOR/PokazProjekty.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/ProjektOR/PokazProjekty.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVrdE9SXFBva2F6UHJvamVrdHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Shared/Error.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Shared/_Layout2.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Shared/_Layout2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Shared/_LayoutGlowna.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Shared/_LayoutGlowna.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRHbG93bmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Shared/_LayoutLog.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Shared/_LayoutLog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/_ViewImports.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/_ViewStart.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/PROJEKT_OR_Web_MVC/ProjektORWeb/ProjektORWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/luka/Desktop/PROJEKT_OR_API/2_VS/ProjektORWeb_MVC/ProjektORWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vd4ecqrc75

@@ -29,9 +29,9 @@
     </div>
 
     <div class="input-field col s6">
-        <label for="DataOdejscia">DataOdejscia</label>
-        <input asp-for="DataOdejscia" type="text" class="validate">
-        <span asp-validation-for="DataOdejscia"></span>
+        <label for="DataOdejsciazPracy">DataOdejscia z Pracy</label>
+        <input asp-for="DataOdejsciazPracy" type="date" class="validate">
+        <span asp-validation-for="DataOdejsciazPracy"></span>
     </div>
 
     <div class="input-field col s6">
@@ -40,25 +40,18 @@
         <span asp-validation-for="Symbol"></span>
     </div>
 
+    <div class="input-field col s6">
+        <label for="Email">Email</label>
+        <input asp-for="Email" type="text" class="validate">
+        <span asp-validation-for="Email"></span>
+    </div>
+    
    @* LISTY*@
 
     <div class="input-field col s6">
-        <label for="Stanowiskos">Stanowiskos</label>
+        <label for="Wydzial">Wydzial</label>
         <div>
-            <select id="Stanowiskos" name="Stanowiskos">
-                @foreach (var st in Model.Stanowiskos)
-                {
-                    <option value="@st.id">@st.Nazwa</option>
-                }
-            </select>
-        </div>
-    </div>
-
-
-    <div class="input-field col s6">
-        <label for="Wydzials">Wydzials</label>
-        <div>
-            <select id="Wydzials" name="Wydzials">
+            <select id="Wydzial" name="Wydzial">
                 @foreach (var wydz in Model.Wydzials)
                 {
                     <option value="@wydz.id">@wydz.Nazwa</option>
@@ -66,6 +59,22 @@
             </select>
         </div>
     </div>
+    <div class="input-field col s6">
+        <label for="Stanowisko">Stanowisko</label>
+        <div>
+            <select id="Stanowisko" name="Stanowisko" class="validate">
+                @foreach (var st in Model.Stanowiskos)
+                {
+                    <option value="@st.Id">@st.Nazwa</option>
+                    
+                }
+            </select>
+            <span asp-validation-for="Stanowiskos"></span>
+        </div>
+    </div>
+
+
+    
 
    
 

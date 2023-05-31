@@ -31,23 +31,23 @@ namespace ProjektORWeb.Models
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int Stanowisko { get; set; }
 
-        public int? PrzelozonyRekurencja { get; set; }
+        //public int? PrzelozonyRekurencja { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public string Email { get; set; }
 
 
         //FK
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        [ForeignKey(nameof(Wydzial))]
-        public virtual Wydzial WydzialNav { get; set; } = null!;
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        //[ForeignKey(nameof(Wydzial))]
+        //public virtual Wydzial WydzialNav { get; set; } = null!;
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        [ForeignKey(nameof(Stanowisko))]
-        public virtual Stanowisko StanowiskoNav { get; set; } = null!;
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        //[ForeignKey(nameof(Stanowisko))]
+        //public virtual Stanowisko StanowiskoNav { get; set; } = null!;
 
-        [ForeignKey(nameof(PrzelozonyRekurencja))]
-        public virtual OsobaPraca OsobaPracaRekurencja { get; set; }
+        //[ForeignKey(nameof(PrzelozonyRekurencja))]
+        //public virtual OsobaPraca OsobaPracaRekurencja { get; set; }
 
 
     }

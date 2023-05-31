@@ -8,7 +8,7 @@ namespace ProjektORWeb.Models
     {
 
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public string Nazwa { get; set; }

@@ -1,21 +1,33 @@
 ﻿using ProjektORWeb.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjektORWeb.ViewModels
 {
     public class CreatePracownik
     {
+        
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public OsobaPraca Imie { get; set; } = null!;
 
-        public OsobaPraca Imie { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public OsobaPraca Nazwisko { get; set; } = null!;
 
-        public OsobaPraca Nazwisko { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public OsobaPraca DataZatrudnienia { get; set; } = null!;
 
-        public OsobaPraca DataZatrudnienia { get; set; }
+        public OsobaPraca? DataOdejsciazPracy { get; set; }
 
-        public OsobaPraca DataOdejscia { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public OsobaPraca Symbol { get; set; } = null!;
 
-        public OsobaPraca Symbol { get; set; }
-        public List<Stanowisko> Stanowiskos { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public OsobaPraca Email { get; set; } = null!;
 
-        public List<Wydzial> Wydzials { get; set; }
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public List<Stanowisko> Stanowiskos { get; set; } = null!;
+
+
+        [Required(ErrorMessage = "Pole jest wymagane")]
+        public List<Wydzial> Wydzials { get; set; } = null!;
     }
 }

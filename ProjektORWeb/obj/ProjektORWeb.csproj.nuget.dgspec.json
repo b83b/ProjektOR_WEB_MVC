@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\ProjektORWeb.csproj": {}
+    "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\ProjektORWeb_MVC\\ProjektORWeb\\ProjektORWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\ProjektORWeb.csproj": {
+    "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\ProjektORWeb_MVC\\ProjektORWeb\\ProjektORWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\ProjektORWeb.csproj",
+        "projectUniqueName": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\ProjektORWeb_MVC\\ProjektORWeb\\ProjektORWeb.csproj",
         "projectName": "ProjektORWeb",
-        "projectPath": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\ProjektORWeb.csproj",
+        "projectPath": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\ProjektORWeb_MVC\\ProjektORWeb\\ProjektORWeb.csproj",
         "packagesPath": "C:\\Users\\luka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\PROJEKT_OR_Web_MVC\\ProjektORWeb\\ProjektORWeb\\obj\\",
+        "outputPath": "C:\\Users\\luka\\Desktop\\PROJEKT_OR_API\\2_VS\\ProjektORWeb_MVC\\ProjektORWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luka\\AppData\\Roaming\\NuGet\\NuGet.Config",

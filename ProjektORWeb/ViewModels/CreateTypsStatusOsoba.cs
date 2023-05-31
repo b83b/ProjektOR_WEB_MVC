@@ -5,6 +5,7 @@ namespace ProjektORWeb.ViewModels
 {
     public class CreateTypsStatusOsoba
     {
+        
         [Required(ErrorMessage = "Pole jest wymagane")]
         public ProjektOR NumerProjektu { get; set; } = null!;
 
