@@ -1,20 +1,48 @@
-﻿@model ProjektOR
+﻿@model List<DetailsProjektViewModel>
 
+<style>
+    input {
+        margin: 0;
+    }
+</style>
 <h1>Dane projektu</h1>
-<div class="row">
-    <div class="col s12 m6">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">@Model.Id @Model.NumerProjektu @Model.Rok</span>
-                Index: @Model.Id
-                LastName: @Model.NumerProjektu
-                Email: @Model.Rok
 
-            </div>
-            <div class="card-action">
-                <a href="/ProjektOr">Cofnij</a>
-                
-            </div>
-        </div>
-    </div>
-</div>
+         
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Cały Numer</th>                    
+                    <th>Typ</th>
+                    <th>Prowadzący</th>
+                    <th>Email Prowadzącego</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    @foreach (var p in Model)
+                    {
+
+                        <td>@p.Identyfikator</td>
+                        <td>@p.NrProjektu-@p.Rok</td>                        
+                        <td>@p.Typ</td>
+                        <td>@p.OsobaProwImie @p.OsobaProwNazw</td>
+                        <td>@p.EmailProwadzacego</td>
+                        @*<td>Osoba Prowadząca: @p.OsobaPracaProwadzaca.Imie @p.OsobaPracaProwadzaca.Nazwisko</td>*@
+                        @*<td>Osoba Zatwierdzająca: @p.OsobaPracaZatwierdzajaca.Imie @p.OsobaPracaZatwierdzajaca.Nazwisko</td>*@
+                        <td></td>
+
+                    }
+
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/Projektor/PokazProjekty" class="button" style="background-color: indianred">Cofnij</a>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>      
+        

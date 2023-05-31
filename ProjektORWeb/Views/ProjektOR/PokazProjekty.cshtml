@@ -1,4 +1,4 @@
-﻿@model List<ProjektOR>
+﻿@model TypsProjektStatusOsobaViewModel
 
   <style>
     form {
@@ -24,46 +24,81 @@
         </div>
         <form method="get">
             <label for="query">Nr projektu</label>
-            <input type="text" id="query" name="query"/>
+            <input type="text" asp-for="Query"/>
             <button type="submit">Szukaj</button>
         </form>
 
+
+    @*TABELKA PROJEKTOW*@
     <table class="highlight striped">
         <thead>
             <tr style="font-weight: bold" >
                 <td>Numer projektu</td>
                 <td>Rok</td>                                
                 <td>Data wpływu</td>
+                <td>Typ</td>                
                 <td>Uwagi</td>
-                @*<td>Kontynuacja po projekcie (Id)</td>*@
-                <td>Typ (id)</td>
-                <td>Osoba prowadząca (Id)</td>
-                <td>Status (Id)</td>
-                <td>Email prowadzącego</td>
+                <td>Status</td>                
                 <td>Hiperlącze</td>
+                
+                <td>Szczegóły</td>
                 <td>Usuń projekt</td>
-               
-
             </tr>
         </thead>
         <tbody>
-            @foreach (var projekt in Model)
+            @{
+                string rokDwieOstatnie(int? rok)
+                {
+                    string r = rok + "";
+                    return r.Substring(2, 2);
+
+                }
+
+               
+
+            }
+            @foreach (var projekt in Model.ProjektORs)
             {
                 
-                <tr>
-                    
+                
+                <tr>                   
                     <td>@projekt.NumerProjektu</td>
                     <td>@projekt.Rok</td>
                     <td>@projekt.DataWplywu</td>
+                    
+                    <td>
+                        @foreach (var projekt2 in Model.Typs)
+                        {
+                            if (projekt2.Id == projekt.Typ)
+                            {
+                                @projekt2.Typ;
+
+                            }
+                        }
+                        
+                    </td>
                     <td>@projekt.Uwagi</td>
-                    <td>@projekt.Typ.Value</td>
                    @* <td>@projekt.KontynuowaniePoProjekcie</td>*@
-                    <td>@projekt.OsobaProwadzaca</td>
-                    <td>@projekt.Status</td>
-                    <td>@projekt.Email</td>
+                    
+                    <td>
+                        @foreach (var projekt2 in Model.Statuses)
+                        {
+                            if (projekt2.id == projekt.Status)
+                            {
+                                @projekt2.Nazwa
+                                ;
+
+                            }
+                        }
+                    </td> 
+                    
                     <td>
                         @*Jak dodać zmienną (wyciąć indeksy ze stringa/int np.: int x = 2021, int y = x[-2:])*@
-                        <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@projekt.Rok" class="button">Otwórz skan</a>
+                        <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@rokDwieOstatnie(projekt.Rok)" class="button">Otwórz skan</a>
+                    </td>
+                    
+                    <td>
+                        <a href="/ProjektOr/Details/@projekt.Id" class="button">Szczegóły</a>
                     </td>
                     <td>
                         <form action="delete/@projekt.Id" method="post">
@@ -71,12 +106,11 @@
                         </form>
                     </td>
                 </tr>
-
-
             }
-
         </tbody>
     </table>
+    
+
     </div>
 
    

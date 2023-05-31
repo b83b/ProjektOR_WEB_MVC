@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjektORWeb.Models
 {
+    
     [Table("ProjektOR")]
     public class ProjektOR
     {
@@ -23,12 +24,6 @@ namespace ProjektORWeb.Models
         public DateTime DataWplywu { get; set; }
 
 
-        //public DateTime DataZatwierdzeniaOd { get; set; }
-
-
-        //public DateTime DataZatwierdzeniaDo { get; set; }
-
-
         [MaxLength(100)]
         public string? Uwagi { get; set; }
 
@@ -39,16 +34,39 @@ namespace ProjektORWeb.Models
         public int? Typ { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public int? OsobaProwadzaca { get; set; }
+        public int OsobaProwadzaca { get; set; }
 
+        public int? OsobaZatwierdzajaca { get; set; }
 
-        //public int? OsobaZatwierdzajaca { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int? Status { get; set; }
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        [EmailAddress]
-        public string? Email { get; set; }
+        
+
+        //-----RELACJE z TYPEM (1 do WIELU)-----------------------
+        //FK
+        
+        [ForeignKey(nameof(Typ))]
+        public virtual Type TypNav { get; set; }
+
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        [ForeignKey(nameof(Status))]
+        public virtual Status? StatusNav { get; set; }
+
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        [ForeignKey(nameof(OsobaProwadzaca))]
+        public virtual OsobaPraca? OsobaPracaProwadzaca { get; set; }
+
+
+        [ForeignKey(nameof(OsobaZatwierdzajaca))]
+        public virtual OsobaPraca? OsobaPracaZatwierdzajaca { get; set; }
+
+
+
+        //-----RELACJE z ZARZADCA (WIELE do WIELU)
+        //public virtual ICollection<ZarzadcaProjekt>Zarzadca_drogi_id { get; set; } = new List<Zarzadca> - relacja wiele do wielu ---zarzadca
+
+
     }
 }

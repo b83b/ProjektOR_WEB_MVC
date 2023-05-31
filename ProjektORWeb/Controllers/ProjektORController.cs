@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
+using ProjektORWeb.ViewModels;
+using System;
 
 //2 commit
 namespace ProjektORWeb.Controllers
@@ -38,48 +40,63 @@ namespace ProjektORWeb.Controllers
 
         public IActionResult PokazProjekty(string query) //parametr query pochodzi z metody GET - szukaj
         {
-            //1. Pobranie danych (zazwyczaj z BD)
+            //1. polaczenie do bazy
             var dbContext = new Models.BzrdDbContext();
-            //WHERE
-            var projekty = dbContext.ProjektOrs
-                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Email).Contains(query)|| (p1.Uwagi).Contains(query))
+            
+            //2. co zwracam
+            var projProj = dbContext.ProjektOrs
+                                        .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
                                         .ToList();
+            var typyProj = dbContext.Typs.ToList();
+            var statusProj = dbContext.Statuss.ToList();
+            var osobaProj = dbContext.OsobaPracas.ToList();
+
+            //3. ViewModel - kontener
+            var pokazAll = new TypsProjektStatusOsobaViewModel();
+            pokazAll.ProjektORs = projProj;
+            pokazAll.Typs = typyProj;
+            pokazAll.Statuses = statusProj;
+            pokazAll.osobaPracas = osobaProj;
+            pokazAll.Query = query;
 
 
-            //2. Przekazanie danych do widoku
-            //2.1 ViewBag - dynamiczny typ danych rzadziej
-            //ViewBag.Projekt = "Lista studentów";
-            //2.2 Dane silnie typowane (bezposrednio w View()
-            return View(projekty);
+            return View(pokazAll);
+            
+                //var projektTyp = new TypsProjektStatusOsobaViewModel();
+                //projektTyp.ProjektORs = projProj;
+                //projektTyp.Typs = typyProj;
+                //projektTyp.Statuses = statusProj;
 
-
-
-
-
+                //return View(projektTyp);
+            
         }
         public IActionResult Details(int id)
         {
-            ProjektOR projekt = null;
-            if (id == 5)
-            {
-                projekt = new ProjektOR
-                {
+            var dbContext = new BzrdDbContext();
+            
+            var projProj = dbContext.ProjektOrs;
+            var typProj = dbContext.Typs;
+            var pracProj = dbContext.OsobaPracas;
 
-                    NumerProjektu = 4566,
-                    Rok = 2021
+            var przekazProjekty = projProj
+                                .Join(typProj, pp => pp.Typ, tt => tt.Id,
+                                (pp, tt) => new {pp, tt})
+                                .Join(pracProj, prac => prac.pp.OsobaProwadzaca, praco => praco.id,
+                                (prac, praco) =>new {prac, praco})
+                                .Select( all => new DetailsProjektViewModel
+                                {
+                                    Identyfikator = all.prac.pp.Id,
+                                    NrProjektu = all.prac.pp.NumerProjektu,
+                                    Rok = all.prac.pp.Rok,
+                                    Typ = all.prac.tt.Typ,
+                                    OsobaProwImie = all.praco.Imie,
+                                    OsobaProwNazw = all.praco.Nazwisko,
+                                    EmailProwadzacego = all.praco.Email
+                                })
+                                .Where(projProj => projProj.Identyfikator == id)
+                                .ToList();               
 
-                };
-            }
-            else if (id == 6)
-            {
-                projekt = new ProjektOR
-                {
-
-
-                };
-
-            };
-            return View(projekt);
+            return View(przekazProjekty);
 
         }
 
@@ -98,15 +115,10 @@ namespace ProjektORWeb.Controllers
                 //zapis do bazy danych
                 var dbContext = new Models.BzrdDbContext(); //polaczenie z bazą
                 dbContext.ProjektOrs.Add(nowyProjekt); // dodanie do kolekcji projektów moje pola 
-                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych
-                                         //powrot do listy projektow
-                return RedirectToAction("PokazProjekty");
-            }
-            //dodanie projektu do bazy
-           
-            
+                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
+                return RedirectToAction("PokazProjekty"); //powrot do listy projektow
+            }                    
             return View(nowyProjekt);
-
         }
 
 
