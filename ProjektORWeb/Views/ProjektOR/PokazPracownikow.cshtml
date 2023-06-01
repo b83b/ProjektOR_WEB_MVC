@@ -1,4 +1,5 @@
 ﻿@model List<OsobaStanowiskoWydzial>
+@*@model List<OsobaPraca>*@
 
 <style>
     form {
@@ -33,7 +34,8 @@
                 <td>Symbol</td>
                 <td>Wydzial</td>
                 <td>Stanowisko</td>
-                <td>Email</td>                
+                <td>Email</td>
+                <td>Edytuj</td>
                 
             </tr>
         </thead>
@@ -51,11 +53,18 @@
                     <td>@pracownik.Wydzial</td>
                     <td>@pracownik.Stanowisko</td>
                     <td>@pracownik.Email</td>
+                    <td>
+                        <a href="/Projektor/EditPracownik/@pracownik.Identyfikator" class="button">Edytuj</a>
+                    </td>
+                    
                     
                     
                 </tr>
             }
+            
+            
         </tbody>
+       
     </table>
 
 

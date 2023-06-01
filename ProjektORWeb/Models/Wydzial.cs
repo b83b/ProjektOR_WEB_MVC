@@ -14,5 +14,7 @@ namespace ProjektORWeb.Models
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public string Symbol { get; set; }
+
+        
     }
 }

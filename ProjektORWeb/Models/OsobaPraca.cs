@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Principal;
 
+
 namespace ProjektORWeb.Models
 {
     [Table("OsobaPraca")]
@@ -42,7 +43,7 @@ namespace ProjektORWeb.Models
         //[ForeignKey(nameof(Wydzial))]
         //public virtual Wydzial WydzialNav { get; set; } = null!;
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        ////[Required(ErrorMessage = "Pole jest wymagane")]
         //[ForeignKey(nameof(Stanowisko))]
         //public virtual Stanowisko StanowiskoNav { get; set; } = null!;
 

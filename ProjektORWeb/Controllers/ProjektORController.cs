@@ -10,7 +10,9 @@ namespace ProjektORWeb.Controllers
 {
     public class ProjektORController : Controller
     {
+        private BzrdDbContext _context;
 
+      
         public IActionResult Index()
         {
             try
@@ -174,7 +176,7 @@ namespace ProjektORWeb.Controllers
                                      (o, w) => new { o, w })
                                      .Join(stanowisko, os => os.o.Stanowisko, stan => stan.Id,
                                      (os, stan) => new { os, stan })
-                                     .Select(all => new OsobaStanowiskoWydzial
+                                     .Select(all => new OsobaStanowiskoWydzial                    //----ViewModel
                                      {
                                          Identyfikator = all.os.o.id,
                                          Imie = all.os.o.Imie,
@@ -187,6 +189,21 @@ namespace ProjektORWeb.Controllers
                                          Email = all.os.o.Email
                                      })
                                      .ToList();
+
+
+            //var przekazpracownikow = dbContext.OsobaPracas                // problem w wyświeltaniem listy
+            //                                  .Select(os => new
+            //                                  {
+            //                                      id = os.id,
+            //                                      Imie = os.Imie,
+            //                                      Nazwisko = os.Nazwisko,
+            //                                      DataZatrudnienia = os.DataZatrudnienia,
+            //                                      DataOdejsciazPracy = os.DataOdejsciazPracy,
+            //                                      Symbol = os.Symbol,
+            //                                      Wydzial = os.WydzialNav.Nazwa,
+            //                                      Stanowisko = os.StanowiskoNav.Nazwa,
+            //                                      Email = os.Email
+            //                                  }).ToList();
             return View(przekazpracownikow);
         }
 
@@ -218,6 +235,29 @@ namespace ProjektORWeb.Controllers
             return View(nowyPracownik);
         }
 
+        //get EDIT
+        public IActionResult EditPracownik(int? id)
+        {
+            var dbContext = new BzrdDbContext();            
+            var pobierzPracownika = dbContext.OsobaPracas.Where(pr => pr.id == id).FirstOrDefault();                  
+            return View(pobierzPracownika);
+        }
+
+        //post EDIT
+        [HttpPost]
+        
+        public IActionResult EditPracownik(int id, [Bind("id,Imie,Nazwisko,DataZatrudnienia,DataOdejsciazPracy,Symbol,Wydzial,Stanowisko,Email")] OsobaPraca osobaPraca)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                var dbContext = new BzrdDbContext();
+                dbContext.Update(osobaPraca);
+                dbContext.SaveChanges();
+                return RedirectToAction(nameof(PokazPracownikow));
+            }
+            return View(osobaPraca);
+        }
         
 
 
