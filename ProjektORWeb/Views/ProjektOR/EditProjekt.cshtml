@@ -1,0 +1,100 @@
+﻿@model EditProjekt
+@*@model ProjektOR  - OK bez list*@
+<style>
+    span {
+        color: #1b00ff;
+    }
+</style>
+@{
+
+    int? idTyp = Model.ProjektORs.Typ;
+    
+
+    
+}
+
+<h1>Dodaj projekt organizacji ruchu</h1>
+<form method="post">
+
+    <div class="input-field col s6">
+        <label for="ProjektORs.NumerProjektu">Nr projektu</label>
+        <input asp-for="ProjektORs.NumerProjektu" type="text" class="validate">
+        <span asp-validation-for="ProjektORs.NumerProjektu"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="ProjektORs.Rok">Rok</label>
+        <input asp-for="ProjektORs.Rok" type="text" class="validate">
+        <span asp-validation-for="ProjektORs.Rok"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="ProjektORs.DataWplywu">Data Wpływu</label>
+        <input asp-for="ProjektORs.DataWplywu" type="date" class="validate">
+        <span asp-validation-for="ProjektORs.DataWplywu"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="ProjektORs.Uwagi">Uwagi</label>
+        <input asp-for="ProjektORs.Uwagi" type="text" class="validate">
+        <span asp-validation-for="ProjektORs.Uwagi"></span>
+    </div>
+
+    @* LISTY*@
+    
+    <div class="input-field col s6">
+        <label for="Typ">Typ</label>
+        <div>
+            <select id="Typ" name="Typ" class="validate">
+                @foreach (var t in Model.Typ)
+                {                    
+                    <option value="@t.Id">@t.Typ</option>
+                }
+            </select>
+        </div>
+        <span asp-validation-for="Typ"></span>
+    </div>
+
+
+    <div class="input-field col s6">
+        <label for="OsobaProwadzaca">Osoba Prowadząca</label>
+        <div>
+            <select id="OsobaProwadzaca" name="OsobaProwadzaca">
+                @foreach (var pr in Model.OsobaProwadzaca)
+                {
+                    <option value="@pr.id">@pr.Imie @pr.Nazwisko</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="Status">Status</label>
+        <div>
+            <select id="Status" name="Status">
+                @foreach (var st in Model.Status)
+                {
+                    <option value="@st.id">@st.Nazwa</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="input-field col s6">
+        <label for="OsobaZatwierdzajaca">Osoba Zatwierdzająca</label>
+        <div>
+            <select id="OsobaZatwierdzajaca" name="OsobaZatwierdzajaca">
+                @foreach (var zat in Model.OsobaZatwierdzajaca)
+                {
+                    <option value="@zat.id">@zat.Imie @zat.Nazwisko</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="working-window_1">
+        <button type="submit">Zapisz</button>
+        <a href="/Projektor/PokazProjekty" style="background-color: indianred">Wróć</a>
+    </div>
+
+</form>

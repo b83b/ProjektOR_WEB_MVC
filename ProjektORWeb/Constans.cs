@@ -22,7 +22,7 @@ namespace ProjektORWeb
         //--------------------------------------------------------------------------------
 
 
-        //WIN LOGIN ---DOM
+        //WIN LOGIN ---DOM/VPN_PJATK - SZKOŁA=========================================================!!!!!!!!!!!!!!!
         public static string ConnectionStr(string login, string haslo)
         {
             ConnectionString = $"Data Source = db-mssql; Initial Catalog=pd3935; Integrated Security = True; Connect Timeout = 30; " +
@@ -30,6 +30,8 @@ namespace ProjektORWeb
 
             return ConnectionString;
         }
+        //================================================================================!!!!!!!!!!!!!!!!!!!!!
+
 
         //Data Source = DESKTOP - BBU712F; Initial Catalog = ProjektOR; Integrated Security = True; Connect Timeout = 30; Encrypt=False;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False
 
@@ -42,6 +44,19 @@ namespace ProjektORWeb
         //    return ConnectionString;
         //}
         //--------------------------------------------------------------------
+
+
+        //WIN LOGIN ---DOM
+        //public static string ConnectionStr(string login, string haslo)
+        //{
+        //    ConnectionString = $"Data Source = DESKTOP-BBU712F; Initial Catalog=ProjektOR; Integrated Security = True; Connect Timeout = 30; " +
+        //        $"Encrypt=False;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False";
+
+        //    return ConnectionString;
+        //}
+
+
+
         //SqlConnection con = new SqlConnection(ConnectionString);
         //SqlCommand com = new SqlCommand();
         //com.Connection = con;

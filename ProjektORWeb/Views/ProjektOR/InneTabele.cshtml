@@ -1,0 +1,104 @@
+﻿@model InneTabele
+<p></p>
+<div>    
+    <a href="/Projektor/Opcje" class="button" style="background-color: indianred">Cofnij</a>
+</div>
+<h1>Tabela TYP</h1>
+@*TABELA TYP*@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Typ</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+
+            @foreach (var t in Model.Typs)
+            {
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.Typ</td>
+            </tr>
+            }
+
+        
+        
+    </tbody>
+
+</table>
+
+<h1>Tabela STATUS</h1>
+@*TABELA STATUS*@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Status</th>
+            
+        </tr>
+    </thead>
+    <tbody>        
+            @foreach (var s in Model.Statuses)
+            {
+            <tr>
+                <td>@s.id</td>
+                <td>@s.Nazwa</td>     
+            </tr>
+            } 
+    </tbody>
+</table> 
+
+<h1>Tabela STANOWISKO</h1>
+@*TABELA STANOWISKO*@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Stanowisko</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stan in Model.Stanowiskos)
+        {
+            <tr>
+                <td>@stan.Id</td>
+                <td>@stan.Nazwa</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h1>Tabela WYDZIAŁ</h1>
+@*TABELA WYDZIAL*@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Wydział</th>
+            <th>Symbol</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var w in Model.Wydzials)
+        {
+            <tr>
+                <td>@w.id</td>
+                <td>@w.Nazwa</td>
+                <td>@w.Symbol</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<p></p>
+<div>
+    <a href="/Projektor/Opcje" class="button" style="background-color: indianred">Cofnij</a>
+</div>
+
+

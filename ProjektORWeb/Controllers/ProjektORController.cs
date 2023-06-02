@@ -10,8 +10,7 @@ namespace ProjektORWeb.Controllers
 {
     public class ProjektORController : Controller
     {
-        private BzrdDbContext _context;
-
+        
       
         public IActionResult Index()
         {
@@ -103,7 +102,8 @@ namespace ProjektORWeb.Controllers
 
         }
 
-        public IActionResult Create()
+        //Create Projekt
+        public IActionResult Create() 
         {
             var dbContext = new BzrdDbContext();
 
@@ -150,6 +150,46 @@ namespace ProjektORWeb.Controllers
             
             return Redirect("Create");
         }
+
+        //GET edit Projekt
+        public IActionResult EditProjekt(int id)
+        {
+            var dbContext = new BzrdDbContext();
+            var pobierzProjekt = dbContext.ProjektOrs.Where(proj => proj.Id == id).FirstOrDefault();
+            var typProj = dbContext.Typs.ToList();
+            var statusProj = dbContext.Statuss.ToList();
+            var osobaProj = dbContext.OsobaPracas.ToList();
+
+            var przeslij = new EditProjekt();
+            //przeslij.NumerProjektu = pobierzProjekt; // przypisanie do nr projektu z wlasciwym id
+            //przeslij.Rok = pobierzProjekt;
+            //przeslij.DataWplywu = pobierzProjekt;
+            //przeslij.Uwagi = pobierzProjekt;
+
+            przeslij.ProjektORs = pobierzProjekt;
+            przeslij.Typ = typProj;
+            przeslij.Status = statusProj;
+            przeslij.OsobaProwadzaca = osobaProj;
+            przeslij.OsobaZatwierdzajaca = osobaProj;
+
+            return View(przeslij); // problem z przeslaniem wlasciwego rekordu ViewModel
+            //return View(pobierzProjekt); //bez problemu przesysla do widoku poprawne dane edytowanego rekordu
+        }
+
+        //POST edit Projekt
+        [HttpPost]
+        public IActionResult EditProjekt(int id, EditProjekt editProjekt)
+        {
+            if (ModelState.IsValid)
+            {
+                var dbContext = new BzrdDbContext();
+                dbContext.Update(editProjekt);
+                dbContext.SaveChanges();
+                return RedirectToAction(nameof(PokazProjekty));
+            }
+            return View(editProjekt);
+        }
+
 
 
         public IActionResult Delete(int id)
@@ -235,7 +275,7 @@ namespace ProjektORWeb.Controllers
             return View(nowyPracownik);
         }
 
-        //get EDIT
+        //get EDIT Pracownik
         public IActionResult EditPracownik(int? id)
         {
             var dbContext = new BzrdDbContext();            
@@ -243,7 +283,7 @@ namespace ProjektORWeb.Controllers
             return View(pobierzPracownika);
         }
 
-        //post EDIT
+        //post EDIT Pracownik
         [HttpPost]
         
         public IActionResult EditPracownik(int id, [Bind("id,Imie,Nazwisko,DataZatrudnienia,DataOdejsciazPracy,Symbol,Wydzial,Stanowisko,Email")] OsobaPraca osobaPraca)
@@ -261,7 +301,21 @@ namespace ProjektORWeb.Controllers
         
 
 
+        public IActionResult InneTabele()
+        {
+            var dbContext = new BzrdDbContext();
+            var typ = dbContext.Typs.ToList();
+            var status = dbContext.Statuss.ToList();   
+            var stanowiska = dbContext.Stanowiskoss.ToList();
+            var Wydzial = dbContext.Wydzials.ToList();
 
+            var przeslij = new InneTabele();
+            przeslij.Typs = typ;
+            przeslij.Statuses = status;
+            przeslij.Stanowiskos = stanowiska;
+            przeslij.Wydzials = Wydzial;
+            return View(przeslij);
+        }
 
         public IActionResult DiagramEncji()
         {        

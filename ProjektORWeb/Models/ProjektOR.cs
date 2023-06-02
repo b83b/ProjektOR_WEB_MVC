@@ -65,7 +65,7 @@ namespace ProjektORWeb.Models
 
 
         //-----RELACJE z ZARZADCA (WIELE do WIELU)
-        //public virtual ICollection<ZarzadcaProjekt>Zarzadca_drogi_id { get; set; } = new List<Zarzadca> - relacja wiele do wielu ---zarzadca
+        //public virtual ICollection<ZarzadcaDrogi>ZarzadcaDrogis { get; set; } = new List<ZarzadcaDrogi> - relacja wiele do wielu ---zarzadca
 
 
     }

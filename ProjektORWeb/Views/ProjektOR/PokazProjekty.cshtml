@@ -37,9 +37,9 @@
                 <td>Typ</td>                
                 <td>Uwagi</td>
                 <td>Status</td>                
-                <td>Hiperlącze</td>
-                
+                <td>Hiperlącze</td>                
                 <td>Szczegóły</td>
+                <td>Edytuj</td>
                 <td>Usuń projekt</td>
             </tr>
         </thead>
@@ -95,6 +95,9 @@
                     
                     <td>
                         <a href="/ProjektOr/Details/@projekt.Id" class="button">Szczegóły</a>
+                    </td>
+                    <td>
+                        <a href="/Projektor/EditProjekt/@projekt.Id" class="button">Edytuj</a>
                     </td>
                     <td>
                         <form action="delete/@projekt.Id" method="post">
