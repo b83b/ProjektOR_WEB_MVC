@@ -39,16 +39,15 @@ namespace ProjektORWeb.Models
 
 
         //FK
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+
         //[ForeignKey(nameof(Wydzial))]
         //public virtual Wydzial WydzialNav { get; set; } = null!;
 
-        ////[Required(ErrorMessage = "Pole jest wymagane")]
+
         //[ForeignKey(nameof(Stanowisko))]
         //public virtual Stanowisko StanowiskoNav { get; set; } = null!;
 
-        //[ForeignKey(nameof(PrzelozonyRekurencja))]
-        //public virtual OsobaPraca OsobaPracaRekurencja { get; set; }
+
 
 
     }

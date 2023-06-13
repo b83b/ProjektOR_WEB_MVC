@@ -1,5 +1,7 @@
-﻿using ProjektORWeb.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ProjektORWeb.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace ProjektORWeb.ViewModels
 {
@@ -18,16 +20,12 @@ namespace ProjektORWeb.ViewModels
         //public ProjektOR? Uwagi { get; set; }
         public ProjektOR? ProjektORs { get; set; }
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        public List<Models.Type> Typ { get; set; }
-
-        [Required(ErrorMessage = "Pole jest wymagane")]
+        public List<SelectListItem> Typ { get; set; }
         public List<OsobaPraca> OsobaProwadzaca { get; set; }
 
 
         public List<OsobaPraca>? OsobaZatwierdzajaca { get; set; }
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        public List<Status> Status;
+        public List<Status> Status { get; set; }
     }
 }

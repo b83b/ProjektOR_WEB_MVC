@@ -36,7 +36,8 @@
                 <td>Data wpływu</td>
                 <td>Typ</td>                
                 <td>Uwagi</td>
-                <td>Status</td>                
+                <td>Status</td>  
+                <td>Zarzadcy</td> 
                 <td>Hiperlącze</td>                
                 <td>Szczegóły</td>
                 <td>Edytuj</td>
@@ -87,7 +88,9 @@
                             }
                         }
                     </td> 
-                    
+                    <td>
+                        @projekt.Zarzadcy
+                    </td>
                     <td>
                         @*Jak dodać zmienną (wyciąć indeksy ze stringa/int np.: int x = 2021, int y = x[-2:])*@
                         <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@rokDwieOstatnie(projekt.Rok)" class="button">Otwórz skan</a>

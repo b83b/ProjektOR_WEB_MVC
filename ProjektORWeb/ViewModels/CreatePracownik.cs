@@ -7,27 +7,33 @@ namespace ProjektORWeb.ViewModels
     {
         
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public OsobaPraca Imie { get; set; } = null!;
+        public string Imie { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public OsobaPraca Nazwisko { get; set; } = null!;
+        public string Nazwisko { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public OsobaPraca DataZatrudnienia { get; set; } = null!;
+        public DateTime DataZatrudnienia { get; set; }
 
-        public OsobaPraca? DataOdejsciazPracy { get; set; }
-
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        public OsobaPraca Symbol { get; set; } = null!;
+        public DateTime? DataOdejsciazPracy { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public OsobaPraca Email { get; set; } = null!;
+        public string Symbol { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public List<Stanowisko> Stanowiskos { get; set; } = null!;
+        public string Email { get; set; } = null!;
 
 
-        [Required(ErrorMessage = "Pole jest wymagane")]
-        public List<Wydzial> Wydzials { get; set; } = null!;
+        public int WydzialId { get; set; }
+
+        public int StanowiskoId { get; set; }
+
+
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        public List<Stanowisko> Stanowiskos { get; set; }
+
+
+        //[Required(ErrorMessage = "Pole jest wymagane")]
+        public List<Wydzial> Wydzials { get; set; }
     }
 }

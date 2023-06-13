@@ -27,20 +27,22 @@ namespace ProjektORWeb.Models
 
         public DbSet<ZarzadcaDrogi> zarzadcaDrogis { get; set; }
         
-
-        
-
-
-
-       
                 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Constans.ConnectionString);
             base.OnConfiguring(optionsBuilder);
+
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-        
+            modelBuilder.Entity<ZarzadcaDrogi>()
+                        .HasMany(x => x.ProjektOrs)
+                        .WithMany(x => x.ZarzadcaDrogisId); // withOne dla jeden do wiele
+
+        }
     }
 }

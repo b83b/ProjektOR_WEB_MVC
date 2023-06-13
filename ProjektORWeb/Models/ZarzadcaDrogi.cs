@@ -15,6 +15,6 @@ namespace ProjektORWeb.Models
 
         public int Dzielnica { get; set; }
 
-        //public virtual ICollection<ZarzadcaProjekt>Projekt_OR_id
+        public virtual ICollection<ProjektOR> ProjektOrs { get; set; } 
     }
 }

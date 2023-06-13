@@ -51,7 +51,7 @@
     <div class="input-field col s6">
         <label for="Wydzial">Wydzial</label>
         <div>
-            <select id="Wydzial" name="Wydzial">
+            <select asp-for="WydzialId">
                 @foreach (var wydz in Model.Wydzials)
                 {
                     <option value="@wydz.id">@wydz.Nazwa</option>
@@ -62,7 +62,7 @@
     <div class="input-field col s6">
         <label for="Stanowisko">Stanowisko</label>
         <div>
-            <select id="Stanowisko" name="Stanowisko" class="validate">
+            <select  asp-for="StanowiskoId" class="validate">
                 @foreach (var st in Model.Stanowiskos)
                 {
                     <option value="@st.Id">@st.Nazwa</option>

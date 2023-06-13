@@ -45,14 +45,10 @@
     <div class="input-field col s6">
         <label for="Typ">Typ</label>
         <div>
-            <select id="Typ" name="Typ" class="validate">
-                @foreach (var t in Model.Typ)
-                {                    
-                    <option value="@t.Id">@t.Typ</option>
-                }
+            <select asp-for="@Model.ProjektORs.Typ" asp-items="@Model.Typ" class="validate">
             </select>
         </div>
-        <span asp-validation-for="Typ"></span>
+        <span asp-validation-for="@Model.ProjektORs.Typ"></span>
     </div>
 
 

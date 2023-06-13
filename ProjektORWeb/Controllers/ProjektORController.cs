@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
 using ProjektORWeb.ViewModels;
@@ -47,8 +48,22 @@ namespace ProjektORWeb.Controllers
             
             //2. co zwracam
             var projProj = dbContext.ProjektOrs
+                                        .Include(c => c.ZarzadcaDrogisId) // JOIN do asocjacji oraz Zarzadca Drogi pobierz projekty 
                                         .Where(p1 => string.IsNullOrWhiteSpace(query) || (p1.Uwagi).Contains(query))
                                         .ToList();
+
+            
+
+            foreach(var p in projProj)
+            {
+                string zarzadcy = "";
+                foreach(var z in p.ZarzadcaDrogisId)
+                {
+                    zarzadcy+= " "+z.Nazwa;
+                }
+                p.Zarzadcy = zarzadcy;
+            }
+
             var typyProj = dbContext.Typs.ToList();
             var statusProj = dbContext.Statuss.ToList();
             var osobaProj = dbContext.OsobaPracas.ToList();
@@ -123,7 +138,7 @@ namespace ProjektORWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProjektOR nowyProjekt)
+        public IActionResult Create(ProjektOR nowyProjekt) // musi być CreateTypsStatusOsoba?
         {
             //Walidacja
             if (ModelState.IsValid) // ==True
@@ -148,7 +163,8 @@ namespace ProjektORWeb.Controllers
                 return RedirectToAction("PokazProjekty"); //powrot do listy projektow
             }     
             
-            return Redirect("Create");
+            //return Redirect("Create");
+            return View(nowyProjekt);
         }
 
         //GET edit Projekt
@@ -167,7 +183,10 @@ namespace ProjektORWeb.Controllers
             //przeslij.Uwagi = pobierzProjekt;
 
             przeslij.ProjektORs = pobierzProjekt;
-            przeslij.Typ = typProj;
+            
+            przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id+"")).ToList(); //cCAST Listowy
+            
+            
             przeslij.Status = statusProj;
             przeslij.OsobaProwadzaca = osobaProj;
             przeslij.OsobaZatwierdzajaca = osobaProj;
@@ -180,6 +199,7 @@ namespace ProjektORWeb.Controllers
         [HttpPost]
         public IActionResult EditProjekt(int id, EditProjekt editProjekt)
         {
+            ModelState.Remove("Typ");// usuniecie walidacji z ViewModel
             if (ModelState.IsValid)
             {
                 var dbContext = new BzrdDbContext();
@@ -187,6 +207,9 @@ namespace ProjektORWeb.Controllers
                 dbContext.SaveChanges();
                 return RedirectToAction(nameof(PokazProjekty));
             }
+
+
+
             return View(editProjekt);
         }
 
@@ -262,13 +285,26 @@ namespace ProjektORWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePracownik(OsobaPraca nowyPracownik)
+        public IActionResult CreatePracownik(CreatePracownik nowyPracownik)
         {
+            ModelState.Remove("Wydzials");
+            ModelState.Remove("Stanowiskos");
             if (ModelState.IsValid) // ==True
             {
                 //zapis do bazy danych
-                var dbContext = new BzrdDbContext(); 
-                dbContext.OsobaPracas.Add(nowyPracownik);  
+                var dbContext = new BzrdDbContext();
+                var dodajOsoba = new OsobaPraca();
+                dodajOsoba.Imie = nowyPracownik.Imie;
+                dodajOsoba.Nazwisko = nowyPracownik.Nazwisko;
+                dodajOsoba.DataZatrudnienia = nowyPracownik.DataZatrudnienia;
+                dodajOsoba.DataOdejsciazPracy = nowyPracownik.DataOdejsciazPracy;
+                dodajOsoba.Symbol = nowyPracownik.Symbol;
+
+                dodajOsoba.Wydzial = nowyPracownik.WydzialId;
+                dodajOsoba.Stanowisko = nowyPracownik.StanowiskoId;
+                //przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id + "")).ToList(); //CAST Listowy
+                dodajOsoba.Email = nowyPracownik.Email;
+                dbContext.OsobaPracas.Add(dodajOsoba);  
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
                 return RedirectToAction("PokazPracownikow"); //powrot do listy pracownikow
             }
@@ -316,6 +352,9 @@ namespace ProjektORWeb.Controllers
             przeslij.Wydzials = Wydzial;
             return View(przeslij);
         }
+
+
+
 
         public IActionResult DiagramEncji()
         {        
