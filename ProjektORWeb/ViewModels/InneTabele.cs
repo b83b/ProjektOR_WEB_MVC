@@ -12,5 +12,7 @@ namespace ProjektORWeb.ViewModels
         public List<Stanowisko> Stanowiskos { get; set; }
 
         public List<Wydzial> Wydzials { get; set; }
+
+        public List<ZarzadcaDrogi> ZarzadcaDrogis { get; set; }
     }
 }

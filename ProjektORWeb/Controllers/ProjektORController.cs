@@ -312,11 +312,32 @@ namespace ProjektORWeb.Controllers
         }
 
         //get EDIT Pracownik
+
         public IActionResult EditPracownik(int? id)
         {
-            var dbContext = new BzrdDbContext();            
-            var pobierzPracownika = dbContext.OsobaPracas.Where(pr => pr.id == id).FirstOrDefault();                  
-            return View(pobierzPracownika);
+
+            var dbContext = new BzrdDbContext();
+
+            var osobaPraca = dbContext.OsobaPracas.Where(os => os.id == id).FirstOrDefault();
+            var osobaStanowisko = dbContext.Stanowiskoss.ToList();
+            var osobaWydzial = dbContext.Wydzials.ToList();
+
+            var przeslij = new EditPracownik();
+            przeslij.Imie = osobaPraca.Imie;
+            przeslij.Nazwisko = osobaPraca.Nazwisko;
+            przeslij.DataZatrudnienia = osobaPraca.DataZatrudnienia;
+            przeslij.DataOdejsciazPracy = osobaPraca.DataOdejsciazPracy;
+            przeslij.Symbol = osobaPraca.Symbol;
+            przeslij.Email = osobaPraca.Email;
+            przeslij.StanowiskoId = osobaPraca.Stanowisko;
+            przeslij.WydzialId = osobaPraca.Wydzial;
+
+            przeslij.Stanowisko = osobaStanowisko.Select(st => new SelectListItem(st.Nazwa, st.Id + "")).ToList();
+            przeslij.Wydzials = osobaWydzial.Select(wydz => new SelectListItem(wydz.Nazwa, wydz.id + "")).ToList();
+            
+            return View(przeslij);
+
+            
         }
 
         //post EDIT Pracownik
@@ -324,7 +345,8 @@ namespace ProjektORWeb.Controllers
         
         public IActionResult EditPracownik(int id, [Bind("id,Imie,Nazwisko,DataZatrudnienia,DataOdejsciazPracy,Symbol,Wydzial,Stanowisko,Email")] OsobaPraca osobaPraca)
         {
-            
+            ModelState.Remove("Wydzials");
+            ModelState.Remove("Stanowiskos");
             if (ModelState.IsValid)
             {
                 var dbContext = new BzrdDbContext();
@@ -344,16 +366,23 @@ namespace ProjektORWeb.Controllers
             var status = dbContext.Statuss.ToList();   
             var stanowiska = dbContext.Stanowiskoss.ToList();
             var Wydzial = dbContext.Wydzials.ToList();
+            
 
             var przeslij = new InneTabele();
             przeslij.Typs = typ;
             przeslij.Statuses = status;
             przeslij.Stanowiskos = stanowiska;
             przeslij.Wydzials = Wydzial;
+            
             return View(przeslij);
         }
 
-
+        public IActionResult PokazZarzadcow() 
+        {
+            var dbContext = new BzrdDbContext();
+            var zarzadcy = dbContext.zarzadcaDrogis.ToList();
+            return View(zarzadcy); 
+        }
 
 
         public IActionResult DiagramEncji()

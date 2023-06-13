@@ -1,0 +1,30 @@
+﻿@model List<ZarzadcaDrogi>
+
+<p></p>
+<div>
+    <a href="/Projektor/Opcje" class="button" style="background-color: indianred">Cofnij</a>
+</div>
+<h1>Tabela ZARZĄDCY DROGI</h1>
+@*TABELA ZARZĄDCY DROGI*@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var zarz in Model)
+        {
+            <tr>
+                <td>@zarz.Id</td>
+                <td>@zarz.Nazwa</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

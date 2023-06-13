@@ -1,4 +1,4 @@
-﻿@model OsobaPraca
+﻿@model EditPracownik
 
 <h1>Edytuj Pracownika</h1>
 
@@ -90,16 +90,27 @@
         <input asp-for="Email" type="text" class="validate">
         <span asp-validation-for="Email"></span>
     </div>
+
+    @* LISTY*@
+
     <div class="input-field col s6">
         <label for="Wydzial">Wydział</label>
-        <input asp-for="Wydzial" type="numebr" class="validate">
-        <span asp-validation-for="Wydzial"></span>
+        <div>
+            <select asp-for="@Model.WydzialId" asp-items="@Model.Wydzials" class="validate"></select>
+        </div>
+        <span asp-validation-for="@Model.WydzialId"></span>
     </div>
+
+
     <div class="input-field col s6">
-        <label for="Stanowisko">Stanowisko</label>
-        <input asp-for="Stanowisko" type="number" class="validate">
-        <span asp-validation-for="Stanowisko"></span>
+        <label for="Stanowiskos">Stanowiskos</label>
+        <div>
+            <select asp-for="@Model.StanowiskoId" asp-items="@Model.Stanowisko" class="validate"></select>
+        </div>
+        <span asp-validation-for="@Model.StanowiskoId"></span>
     </div>
+
+
 
     <div class="working-window_1">
         <button type="submit">Zapisz</button>
@@ -107,3 +118,5 @@
     </div>
 
 </form>
+
+

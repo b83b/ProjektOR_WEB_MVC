@@ -11,9 +11,7 @@ namespace ProjektORWeb.Models
 
         public string Nazwa { get; set; }
 
-        public string Adres { get; set; }
-
-        public int Dzielnica { get; set; }
+        
 
         public virtual ICollection<ProjektOR> ProjektOrs { get; set; } 
     }

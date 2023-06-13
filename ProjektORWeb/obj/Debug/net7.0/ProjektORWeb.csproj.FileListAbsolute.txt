@@ -960,3 +960,5 @@ C:\Users\luka\Desktop\ProjektORWeb_MVC_asocjacja\ProjektORWeb_MVC\ProjektORWeb\o
 C:\Users\luka\Desktop\ProjektORWeb_MVC_asocjacja\ProjektORWeb_MVC\ProjektORWeb\obj\Debug\net7.0\ProjektORWeb.pdb
 C:\Users\luka\Desktop\ProjektORWeb_MVC_asocjacja\ProjektORWeb_MVC\ProjektORWeb\obj\Debug\net7.0\ProjektORWeb.genruntimeconfig.cache
 C:\Users\luka\Desktop\ProjektORWeb_MVC_asocjacja\ProjektORWeb_MVC\ProjektORWeb\obj\Debug\net7.0\ref\ProjektORWeb.dll
+C:\Users\luka\Desktop\PROJEKT_OR_API\2_VS\ProjektORWeb_MVC\ProjektORWeb\bin\Debug\net7.0\xunit.abstractions.dll
+C:\Users\luka\Desktop\PROJEKT_OR_API\2_VS\ProjektORWeb_MVC\ProjektORWeb\bin\Debug\net7.0\xunit.core.dll
