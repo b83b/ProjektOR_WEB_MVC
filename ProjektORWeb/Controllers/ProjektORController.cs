@@ -122,7 +122,7 @@ namespace ProjektORWeb.Controllers
         {
             var dbContext = new BzrdDbContext();
 
-            
+
             var typyProj = dbContext.Typs.ToList();
             var statusProj = dbContext.Statuss.ToList();
             var osobaProj = dbContext.OsobaPracas.ToList();
@@ -133,18 +133,39 @@ namespace ProjektORWeb.Controllers
             przeslij.Status = statusProj;
             przeslij.OsobaProwadzaca = osobaProj;
             przeslij.OsobaZatwierdzajaca = osobaProj;
+           
 
             return View(przeslij);
         }
 
         [HttpPost]
-        public IActionResult Create(ProjektOR nowyProjekt) // musi być CreateTypsStatusOsoba?
+        public IActionResult Create(CreateTypsStatusOsoba nowyProjekt) // musi być CreateTypsStatusOsoba?
         {
-            //Walidacja
-            if (ModelState.IsValid) // ==True
+
+            ModelState.Remove("Typ");
+            ModelState.Remove("OsobaProwadzaca");
+            ModelState.Remove("OsobaZatwierdzajaca");
+            ModelState.Remove("Status");
+
+            if (ModelState.IsValid) 
             {
+
+                var dbContext = new BzrdDbContext();
+                var dodajProjekt = new ProjektOR();
+                dodajProjekt.NumerProjektu = nowyProjekt.NumerProjektu;
+                dodajProjekt.Rok = nowyProjekt.Rok;
+                dodajProjekt.DataWplywu = nowyProjekt.DataWplywu;
+                dodajProjekt.Uwagi = nowyProjekt.Uwagi;
+                dodajProjekt.Typ = nowyProjekt.TypId;
+                dodajProjekt.OsobaProwadzaca = nowyProjekt.OsobaProwadzacaId;
+                dodajProjekt.OsobaZatwierdzajaca = nowyProjekt.OsobaZatwierdzajacaId;
+                dodajProjekt.Status = nowyProjekt.StatusId;
+
+                dbContext.ProjektOrs.Add(dodajProjekt); // dodanie do kolekcji projektów moje pola 
+                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
+                return RedirectToAction("PokazProjekty"); //powrot do listy projektow
                 //zapis do bazy danych
-                var dbContext = new BzrdDbContext(); //polaczenie z bazą
+                 //polaczenie z bazą
                 //var numer = nowyProjekt.NumerProjektu;
                 //Console.WriteLine(nowyProjekt.NumerProjektu);
                 //var rok = nowyProjekt.Rok;
@@ -158,9 +179,7 @@ namespace ProjektORWeb.Controllers
                 //przeslij.NumerProjektu = numer;
 
 
-                dbContext.ProjektOrs.Add(nowyProjekt); // dodanie do kolekcji projektów moje pola 
-                dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
-                return RedirectToAction("PokazProjekty"); //powrot do listy projektow
+                
             }     
             
             //return Redirect("Create");
@@ -308,6 +327,8 @@ namespace ProjektORWeb.Controllers
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
                 return RedirectToAction("PokazPracownikow"); //powrot do listy pracownikow
             }
+
+
             return View(nowyPracownik);
         }
 
