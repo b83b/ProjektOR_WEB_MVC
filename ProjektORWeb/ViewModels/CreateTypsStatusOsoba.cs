@@ -10,7 +10,7 @@ namespace ProjektORWeb.ViewModels
         public int? NumerProjektu { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        //[MaxLength(4)]        
+                
         public int? Rok { get; set; } 
 
         [Required(ErrorMessage = "Pole jest wymagane")]

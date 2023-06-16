@@ -181,9 +181,26 @@ namespace ProjektORWeb.Controllers
 
                 
             }     
-            
-            //return Redirect("Create");
-            return View(nowyProjekt);
+            else
+            {
+                var dbContext = new BzrdDbContext();
+
+
+                var typyProj = dbContext.Typs.ToList();
+                var statusProj = dbContext.Statuss.ToList();
+                var osobaProj = dbContext.OsobaPracas.ToList();
+
+                var przeslij = new CreateTypsStatusOsoba();
+
+                przeslij.Typ = typyProj;
+                przeslij.Status = statusProj;
+                przeslij.OsobaProwadzaca = osobaProj;
+                przeslij.OsobaZatwierdzajaca = osobaProj;
+
+
+                return View(przeslij);
+            }
+           
         }
 
         //GET edit Projekt
@@ -203,7 +220,7 @@ namespace ProjektORWeb.Controllers
 
             przeslij.ProjektORs = pobierzProjekt;
             
-            przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id+"")).ToList(); //cCAST Listowy
+            przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id+"")).ToList(); //CAST Listowy
             
             
             przeslij.Status = statusProj;
@@ -219,6 +236,10 @@ namespace ProjektORWeb.Controllers
         public IActionResult EditProjekt(int id, EditProjekt editProjekt)
         {
             ModelState.Remove("Typ");// usuniecie walidacji z ViewModel
+            ModelState.Remove("Status");// usuniecie walidacji z ViewModel
+            ModelState.Remove("OsobaProwadzaca");// usuniecie walidacji z ViewModel
+            ModelState.Remove("OsobaZatwierdzajaca");// usuniecie walidacji z ViewModel
+
             if (ModelState.IsValid)
             {
                 var dbContext = new BzrdDbContext();
@@ -327,9 +348,22 @@ namespace ProjektORWeb.Controllers
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
                 return RedirectToAction("PokazPracownikow"); //powrot do listy pracownikow
             }
+            else
+            {
+                var dbContext = new BzrdDbContext();
+                var osobaStanowisko = dbContext.Stanowiskoss.ToList();
+                var osobaWydzial = dbContext.Wydzials.ToList();
+
+                var przeslij = new CreatePracownik();
+                przeslij.Stanowiskos = osobaStanowisko;
+                przeslij.Wydzials = osobaWydzial;
 
 
-            return View(nowyPracownik);
+
+                return View(przeslij);
+            }
+
+            
         }
 
         //get EDIT Pracownik
@@ -362,16 +396,24 @@ namespace ProjektORWeb.Controllers
         }
 
         //post EDIT Pracownik
-        [HttpPost]
-        
-        public IActionResult EditPracownik(int id, [Bind("id,Imie,Nazwisko,DataZatrudnienia,DataOdejsciazPracy,Symbol,Wydzial,Stanowisko,Email")] OsobaPraca osobaPraca)
+        [HttpPost]        
+        public IActionResult EditPracownik(int id, [Bind("id,Imie,Nazwisko,DataZatrudnienia,DataOdejsciazPracy,Symbol,Wydzial,Stanowisko,Email")] EditPracownik osobaPraca)
         {
             ModelState.Remove("Wydzials");
             ModelState.Remove("Stanowiskos");
             if (ModelState.IsValid)
             {
                 var dbContext = new BzrdDbContext();
-                dbContext.Update(osobaPraca);
+                var dodajOsoba = new OsobaPraca();
+                dodajOsoba.Imie = osobaPraca.Imie;
+                dodajOsoba.Nazwisko = osobaPraca.Nazwisko;
+                dodajOsoba.DataZatrudnienia = osobaPraca.DataZatrudnienia;
+                dodajOsoba.DataOdejsciazPracy = osobaPraca.DataOdejsciazPracy;
+                dodajOsoba.Symbol = osobaPraca.Symbol;
+                dodajOsoba.Wydzial = osobaPraca.WydzialId;
+                dodajOsoba.Stanowisko = osobaPraca.StanowiskoId;
+
+                dbContext.Update(dodajOsoba);
                 dbContext.SaveChanges();
                 return RedirectToAction(nameof(PokazPracownikow));
             }
