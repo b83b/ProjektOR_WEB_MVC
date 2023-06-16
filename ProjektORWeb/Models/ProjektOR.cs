@@ -32,7 +32,7 @@ namespace ProjektORWeb.Models
         
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-        public int? Typ { get; set; }
+        public int Typ { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
         public int OsobaProwadzaca { get; set; }

@@ -233,7 +233,7 @@ namespace ProjektORWeb.Controllers
 
         //POST edit Projekt
         [HttpPost]
-        public IActionResult EditProjekt(int id, EditProjekt editProjekt)
+        public IActionResult EditProjekt(EditProjekt editProjekt)
         {
             ModelState.Remove("Typ");// usuniecie walidacji z ViewModel
             ModelState.Remove("Status");// usuniecie walidacji z ViewModel
@@ -242,8 +242,21 @@ namespace ProjektORWeb.Controllers
 
             if (ModelState.IsValid)
             {
+
                 var dbContext = new BzrdDbContext();
-                dbContext.Update(editProjekt);
+                var przeslij = new ProjektOR();
+                przeslij.Id = editProjekt.ProjektORs.Id;
+                przeslij.NumerProjektu = editProjekt.ProjektORs.NumerProjektu;
+                przeslij.Rok = editProjekt.ProjektORs.Rok;
+                przeslij.DataWplywu = editProjekt.ProjektORs.DataWplywu;
+                przeslij.Uwagi = editProjekt.ProjektORs.Uwagi;
+                przeslij.Typ = editProjekt.ProjektORs.Typ;
+                przeslij.OsobaProwadzaca = editProjekt.ProjektORs.OsobaProwadzaca;
+                przeslij.Status = editProjekt.ProjektORs.Status;
+                przeslij.OsobaZatwierdzajaca = editProjekt.ProjektORs.OsobaZatwierdzajaca;
+
+
+                dbContext.Update(przeslij);
                 dbContext.SaveChanges();
                 return RedirectToAction(nameof(PokazProjekty));
             }
@@ -397,14 +410,15 @@ namespace ProjektORWeb.Controllers
 
         //post EDIT Pracownik
         [HttpPost]        
-        public IActionResult EditPracownik(int id, [Bind("id,Imie,Nazwisko,DataZatrudnienia,DataOdejsciazPracy,Symbol,Wydzial,Stanowisko,Email")] EditPracownik osobaPraca)
+        public IActionResult EditPracownik(EditPracownik osobaPraca)
         {
             ModelState.Remove("Wydzials");
             ModelState.Remove("Stanowiskos");
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)                     // dla !ModelState.IsValid wchodzi w pętle i edytuje poprawnie (dlaczego warunek false??!!!
             {
                 var dbContext = new BzrdDbContext();
                 var dodajOsoba = new OsobaPraca();
+                dodajOsoba.id = osobaPraca.Id;
                 dodajOsoba.Imie = osobaPraca.Imie;
                 dodajOsoba.Nazwisko = osobaPraca.Nazwisko;
                 dodajOsoba.DataZatrudnienia = osobaPraca.DataZatrudnienia;
@@ -412,12 +426,28 @@ namespace ProjektORWeb.Controllers
                 dodajOsoba.Symbol = osobaPraca.Symbol;
                 dodajOsoba.Wydzial = osobaPraca.WydzialId;
                 dodajOsoba.Stanowisko = osobaPraca.StanowiskoId;
+                dodajOsoba.Email = osobaPraca.Email;
 
-                dbContext.Update(dodajOsoba);
+                dbContext.Update(dodajOsoba);           // TRZEBA JESZCZE DODAC KTOREGO pracownika aktualizujemy ID teraz dodaje
                 dbContext.SaveChanges();
                 return RedirectToAction(nameof(PokazPracownikow));
             }
-            return View(osobaPraca);
+            else
+            {
+                var dbContext = new BzrdDbContext();
+                var osobaStanowisko = dbContext.Stanowiskoss.ToList();
+                var osobaWydzial = dbContext.Wydzials.ToList();
+
+                var przeslij = new EditPracownik();                
+                przeslij.StanowiskoId = osobaPraca.StanowiskoId;
+                przeslij.WydzialId = osobaPraca.WydzialId;
+
+                przeslij.Stanowisko = osobaStanowisko.Select(st => new SelectListItem(st.Nazwa, st.Id + "")).ToList();
+                przeslij.Wydzials = osobaWydzial.Select(wydz => new SelectListItem(wydz.Nazwa, wydz.id + "")).ToList();
+
+                return View(przeslij);
+            }
+            
         }
         
 

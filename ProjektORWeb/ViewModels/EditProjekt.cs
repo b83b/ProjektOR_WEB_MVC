@@ -18,14 +18,15 @@ namespace ProjektORWeb.ViewModels
         //public ProjektOR DataWplywu { get; set; }
 
         //public ProjektOR? Uwagi { get; set; }
+
         public ProjektOR? ProjektORs { get; set; }
 
-        public List<SelectListItem> Typ { get; set; }
-        public List<OsobaPraca> OsobaProwadzaca { get; set; }
+        public List<SelectListItem>? Typ { get; set; }
+        public List<OsobaPraca>? OsobaProwadzaca { get; set; }
 
 
         public List<OsobaPraca>? OsobaZatwierdzajaca { get; set; }
 
-        public List<Status> Status { get; set; }
+        public List<Status>? Status { get; set; }
     }
 }

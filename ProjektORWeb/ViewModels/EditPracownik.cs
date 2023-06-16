@@ -6,21 +6,22 @@ namespace ProjektORWeb.ViewModels
 {
     public class EditPracownik
     {
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        public int Id { get; set; }
+        
         public string Imie { get; set; } = null!;
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public string Nazwisko { get; set; } = null!;
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public DateTime DataZatrudnienia { get; set; }
 
         public DateTime? DataOdejsciazPracy { get; set; }
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public string Symbol { get; set; } = null!;
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public string Email { get; set; } = null!;
 
 
@@ -32,10 +33,10 @@ namespace ProjektORWeb.ViewModels
         //public List<OsobaPraca> OsobaPracas { get; set; }
 
         //[Required(ErrorMessage = "Pole jest wymagane")]
-        public List<SelectListItem> Stanowisko { get; set; }
+        public List<SelectListItem>? Stanowisko { get; set; }
 
 
         //[Required(ErrorMessage = "Pole jest wymagane")]
-        public List<SelectListItem> Wydzials { get; set; }
+        public List<SelectListItem>? Wydzials { get; set; }
     }
 }
