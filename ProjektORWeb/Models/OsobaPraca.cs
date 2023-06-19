@@ -24,6 +24,7 @@ namespace ProjektORWeb.Models
         public DateTime? DataOdejsciazPracy { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
+        [MaxLength(3)]
         public string Symbol { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
@@ -38,14 +39,7 @@ namespace ProjektORWeb.Models
         public string Email { get; set; }
 
 
-        //FK
-
-        //[ForeignKey(nameof(Wydzial))]
-        //public virtual Wydzial WydzialNav { get; set; } = null!;
-
-
-        //[ForeignKey(nameof(Stanowisko))]
-        //public virtual Stanowisko StanowiskoNav { get; set; } = null!;
+        
 
 
 

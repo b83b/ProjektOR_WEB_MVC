@@ -1,0 +1,26 @@
+LOGOWANIE:
+1. ---Windows Authentication---- w klasie Constans metoda skomentowana jako: //WIN LOGIN db-mssql (domyślna)
+Nazwa serwera: db-mssql
+Nazwa bazy : pd3935
+Logowanie nie wymaga podawania Loginu i Hasła (brak uprawnień dla zakładania Loginu w bazie db-mssql)
+
+2. ---SQL Server Authentication --- w klasie Constans metoda skomentowana jako: SQL LOGIN
+Tutaj możliwe jest logowanie tylko poprzez istniejące i wcześniej założone konta w bazie (w moim przypadku tylko na prywatnym komputerze)
+Opcja wyloguj w górnym pasku nawigacji do ConnectionString przypisuje pustą wartość - "".
+Ponowne zalogowanie wymaga podania poprawnego Loginu i Hasła.
+=========================================================================================================================================
+3. Diagram encji znajduję się również na stronie w górnym pasku nawigacji(tutaj znajduje się również krótki opis tabel)
+=========================================================================================================================================
+4. Funkcje aplikacji zobaczymy klikając w lewym panelu na "Opcje"
+=========================================================================================================================================
+5. Odnośniki z lewego Panelu:
+	- Skany
+	- Przestrzeń Dyskowa
+	- Kosz
+oraz 
+W Panelu Wyświetlania rejestru projektów:
+	- Hieprłącze (pokaże tylko prawdziwą końcówkę wywołania katalogu danego projektu - Rok/NrProjektu-Rok)
+zostały zastąpione przykładowymi, nieistniejacymi scieżkami (prawdziwe ścieżki będą nas przekierowywać do istniejących zasobów, dla osób posiadających do nich uprawnienia - dane osobowe)
+
+
+

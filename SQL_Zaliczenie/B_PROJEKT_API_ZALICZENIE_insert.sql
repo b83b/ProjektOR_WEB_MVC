@@ -75,15 +75,12 @@ INSERT INTO OsobaPraca (Imie, Nazwisko, DataZatrudnienia, Symbol, Wydzial, Stano
 --PROJEKT OR---------------------------------------------------------------------------------------------------------------
 INSERT INTO ProjektOR (
     NumerProjektu, 
-	Rok,
-	Hiperlacze,	
-	DataWplywu, 
-	DataZatwierdzeniaOd, 
-	DataZatwierdzeniaDo, 
+	Rok,		
+	DataWplywu, 	 
 	Uwagi,  
 	Typ, 
 	OsobaProwadzaca, 
 	OsobaZatwierdzajaca, 
 	Status)
-VALUES (300, 2023, 'wp.pl','2023-03-12', '2023-04-15', '2024-04-15', 'brak uwag',1, 2,2,1)
+VALUES (300, 2023,'2023-03-12', 'brak uwag',1, 2,2,1)
 

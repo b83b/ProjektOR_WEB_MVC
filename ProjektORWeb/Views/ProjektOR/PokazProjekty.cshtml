@@ -21,7 +21,7 @@
             @*WYSZUKIWARKA*@
         </div>
         <form method="get">
-            <label for="query">Nr projektu</label>
+            <label for="query">Szukaj wg Uwag</label>
             <input type="text" asp-for="Query"/>
             <button type="submit">Szukaj</button>
         </form>
@@ -75,7 +75,7 @@
                         }                        
                     </td>
                     <td>@projekt.Uwagi</td>
-                   @* <td>@projekt.KontynuowaniePoProjekcie</td>*@
+                   
                     
                     <td>
                         @foreach (var projekt2 in Model.Statuses)
@@ -92,8 +92,8 @@
                         @projekt.Zarzadcy
                     </td>
                     <td>
-                        @*Jak dodać zmienną (wyciąć indeksy ze stringa/int np.: int x = 2021, int y = x[-2:])*@
-                        <a href="https://umsw.sharepoint.com/:f:/r/sites/msteams_46c5f9_648647/Skany/Projekty/Projekty_IO/@projekt.Rok/@projekt.NumerProjektu-@rokDwieOstatnie(projekt.Rok)" class="button">Otwórz skan</a>
+                        
+                        <a href="Tutaj_znajduje_sie_sciezka_do_udzialu_skanow_projektow/@projekt.Rok/@projekt.NumerProjektu-@rokDwieOstatnie(projekt.Rok)" class="button">Otwórz skan</a>
                     </td>
                     
                     <td>

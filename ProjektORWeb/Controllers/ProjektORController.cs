@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjektORWeb.Models;
 using ProjektORWeb.ViewModels;
 using System;
+using System.Collections.Immutable;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 //2 commit
@@ -79,12 +80,7 @@ namespace ProjektORWeb.Controllers
 
             return View(pokazAll);
             
-                //var projektTyp = new TypsProjektStatusOsobaViewModel();
-                //projektTyp.ProjektORs = projProj;
-                //projektTyp.Typs = typyProj;
-                //projektTyp.Statuses = statusProj;
-
-                //return View(projektTyp);
+                
             
         }
         public IActionResult Details(int id)
@@ -122,14 +118,14 @@ namespace ProjektORWeb.Controllers
         {
             var dbContext = new BzrdDbContext();
 
-
+            
             var typyProj = dbContext.Typs.ToList();
             var statusProj = dbContext.Statuss.ToList();
             var osobaProj = dbContext.OsobaPracas.ToList();
 
             var przeslij = new CreateTypsStatusOsoba();
 
-            przeslij.Typ = typyProj;
+            przeslij.Typ = typyProj; ;
             przeslij.Status = statusProj;
             przeslij.OsobaProwadzaca = osobaProj;
             przeslij.OsobaZatwierdzajaca = osobaProj;
@@ -164,19 +160,7 @@ namespace ProjektORWeb.Controllers
                 dbContext.ProjektOrs.Add(dodajProjekt); // dodanie do kolekcji projektów moje pola 
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
                 return RedirectToAction("PokazProjekty"); //powrot do listy projektow
-                //zapis do bazy danych
-                 //polaczenie z bazą
-                //var numer = nowyProjekt.NumerProjektu;
-                //Console.WriteLine(nowyProjekt.NumerProjektu);
-                //var rok = nowyProjekt.Rok;
-                //var dataWplywu = nowyProjekt.DataWplywu;
-                //var uwagi = nowyProjekt.Uwagi;
-                //var typ = nowyProjekt.Typ;
-                //var osobaProwadzaca = nowyProjekt.OsobaProwadzaca;
-                //var status = nowyProjekt.Status;
-
-                //var przeslij = new ProjektOR();
-                //przeslij.NumerProjektu = numer;
+                
 
 
                 
@@ -213,22 +197,24 @@ namespace ProjektORWeb.Controllers
             var osobaProj = dbContext.OsobaPracas.ToList();
 
             var przeslij = new EditProjekt();
-            //przeslij.NumerProjektu = pobierzProjekt; // przypisanie do nr projektu z wlasciwym id
-            //przeslij.Rok = pobierzProjekt;
-            //przeslij.DataWplywu = pobierzProjekt;
-            //przeslij.Uwagi = pobierzProjekt;
-
-            przeslij.ProjektORs = pobierzProjekt;
+            
             
             przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id+"")).ToList(); //CAST Listowy
-            
-            
-            przeslij.Status = statusProj;
-            przeslij.OsobaProwadzaca = osobaProj;
-            przeslij.OsobaZatwierdzajaca = osobaProj;
+            przeslij.Status = statusProj.Select(x => new SelectListItem(x.Nazwa, x.id + "")).ToList();
+            przeslij.OsobaProwadzaca = osobaProj.Select(x => new SelectListItem(x.Nazwisko, x.id + "")).ToList();
+            przeslij.OsobaZatwierdzajaca = osobaProj.Select(x => new SelectListItem(x.Nazwisko, x.id + "")).ToList();
 
-            return View(przeslij); // problem z przeslaniem wlasciwego rekordu ViewModel
-            //return View(pobierzProjekt); //bez problemu przesysla do widoku poprawne dane edytowanego rekordu
+
+            przeslij.NumerProjektu = pobierzProjekt.NumerProjektu;
+            przeslij.Rok = pobierzProjekt.Rok;
+            przeslij.DataWplywu = pobierzProjekt.DataWplywu;            
+            przeslij.StatusId = pobierzProjekt.Status;
+            przeslij.OsobaProwadzacaId = pobierzProjekt.OsobaProwadzaca;
+            przeslij.OsobaZatwierdzajacaId = pobierzProjekt.OsobaZatwierdzajaca;
+            przeslij.TypId = pobierzProjekt.Typ;
+
+            return View(przeslij);
+            
         }
 
         //POST edit Projekt
@@ -245,25 +231,40 @@ namespace ProjektORWeb.Controllers
 
                 var dbContext = new BzrdDbContext();
                 var przeslij = new ProjektOR();
-                przeslij.Id = editProjekt.ProjektORs.Id;
-                przeslij.NumerProjektu = editProjekt.ProjektORs.NumerProjektu;
-                przeslij.Rok = editProjekt.ProjektORs.Rok;
-                przeslij.DataWplywu = editProjekt.ProjektORs.DataWplywu;
-                przeslij.Uwagi = editProjekt.ProjektORs.Uwagi;
-                przeslij.Typ = editProjekt.ProjektORs.Typ;
-                przeslij.OsobaProwadzaca = editProjekt.ProjektORs.OsobaProwadzaca;
-                przeslij.Status = editProjekt.ProjektORs.Status;
-                przeslij.OsobaZatwierdzajaca = editProjekt.ProjektORs.OsobaZatwierdzajaca;
+                przeslij.Id = editProjekt.id;
+                przeslij.NumerProjektu = editProjekt.NumerProjektu;
+                przeslij.Rok = editProjekt.Rok;
+                przeslij.DataWplywu = editProjekt.DataWplywu;
+                przeslij.Uwagi = editProjekt.Uwagi;
+                przeslij.Typ = editProjekt.TypId;
+                przeslij.OsobaProwadzaca = editProjekt.OsobaProwadzacaId;
+                przeslij.Status = editProjekt.StatusId;
+                przeslij.OsobaZatwierdzajaca = editProjekt.OsobaZatwierdzajacaId;
 
 
                 dbContext.Update(przeslij);
                 dbContext.SaveChanges();
                 return RedirectToAction(nameof(PokazProjekty));
             }
+            else
+            {
+                var dbContext = new BzrdDbContext();
+                
+                var typProj = dbContext.Typs.ToList();
+                var statusProj = dbContext.Statuss.ToList();
+                var osobaProj = dbContext.OsobaPracas.ToList();
+
+                var przeslij = new EditProjekt();
 
 
+                przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id + "")).ToList(); //CAST Listowy
+                przeslij.Status = statusProj.Select(x => new SelectListItem(x.Nazwa, x.id + "")).ToList();
+                przeslij.OsobaProwadzaca = osobaProj.Select(x => new SelectListItem(x.Nazwisko, x.id + "")).ToList();
+                przeslij.OsobaZatwierdzajaca = osobaProj.Select(x => new SelectListItem(x.Nazwisko, x.id + "")).ToList();
 
-            return View(editProjekt);
+                return View(przeslij);
+            }
+            
         }
 
 
@@ -307,19 +308,7 @@ namespace ProjektORWeb.Controllers
                                      .ToList();
 
 
-            //var przekazpracownikow = dbContext.OsobaPracas                // problem w wyświeltaniem listy
-            //                                  .Select(os => new
-            //                                  {
-            //                                      id = os.id,
-            //                                      Imie = os.Imie,
-            //                                      Nazwisko = os.Nazwisko,
-            //                                      DataZatrudnienia = os.DataZatrudnienia,
-            //                                      DataOdejsciazPracy = os.DataOdejsciazPracy,
-            //                                      Symbol = os.Symbol,
-            //                                      Wydzial = os.WydzialNav.Nazwa,
-            //                                      Stanowisko = os.StanowiskoNav.Nazwa,
-            //                                      Email = os.Email
-            //                                  }).ToList();
+            
             return View(przekazpracownikow);
         }
 
@@ -355,7 +344,7 @@ namespace ProjektORWeb.Controllers
 
                 dodajOsoba.Wydzial = nowyPracownik.WydzialId;
                 dodajOsoba.Stanowisko = nowyPracownik.StanowiskoId;
-                //przeslij.Typ = typProj.Select(x => new SelectListItem(x.Typ, x.Id + "")).ToList(); //CAST Listowy
+                
                 dodajOsoba.Email = nowyPracownik.Email;
                 dbContext.OsobaPracas.Add(dodajOsoba);  
                 dbContext.SaveChanges(); // wstawienie rekordu do bazy danych                                         
@@ -414,7 +403,7 @@ namespace ProjektORWeb.Controllers
         {
             ModelState.Remove("Wydzials");
             ModelState.Remove("Stanowiskos");
-            if (ModelState.IsValid)                     // dla !ModelState.IsValid wchodzi w pętle i edytuje poprawnie (dlaczego warunek false??!!!
+            if (ModelState.IsValid)                     
             {
                 var dbContext = new BzrdDbContext();
                 var dodajOsoba = new OsobaPraca();
@@ -428,7 +417,7 @@ namespace ProjektORWeb.Controllers
                 dodajOsoba.Stanowisko = osobaPraca.StanowiskoId;
                 dodajOsoba.Email = osobaPraca.Email;
 
-                dbContext.Update(dodajOsoba);           // TRZEBA JESZCZE DODAC KTOREGO pracownika aktualizujemy ID teraz dodaje
+                dbContext.Update(dodajOsoba);           
                 dbContext.SaveChanges();
                 return RedirectToAction(nameof(PokazPracownikow));
             }

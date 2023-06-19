@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-05-21 18:59:05.457
+-- Last modification date: 2023-06-19 19:05:03.732
 
 -- tables
 -- Table: OsobaPraca
@@ -12,7 +12,6 @@ CREATE TABLE OsobaPraca (
     Symbol char(3)  NOT NULL,
     Wydzial int  NOT NULL,
     Stanowisko int  NOT NULL,
-    PrzelozonyRekurencja int  NULL,
     Email varchar(100)  NOT NULL,
     CONSTRAINT OsobaPraca_pk PRIMARY KEY  (id)
 );
@@ -24,15 +23,19 @@ CREATE TABLE ProjektOR (
     Rok int  NOT NULL,
     Hiperlacze varchar(500)  NULL,
     DataWplywu date  NOT NULL,
-    DataZatwierdzeniaOd date  NULL,
-    DataZatwierdzeniaDo date  NULL,
     Uwagi varchar(500)  NULL,
-    KontynuowaniePoProjekcie int  NULL,
     Typ int  NOT NULL,
     OsobaProwadzaca int  NOT NULL,
     OsobaZatwierdzajaca int  NULL,
     Status int  NOT NULL,
     CONSTRAINT ProjektOR_pk PRIMARY KEY  (id)
+);
+
+-- Table: ProjektORZarzadcaDrogi
+CREATE TABLE ProjektORZarzadcaDrogi (
+    ProjektOrsId int  NOT NULL,
+    ZarzadcaDrogisIdId int  NOT NULL,
+    CONSTRAINT ProjektORZarzadcaDrogi_pk PRIMARY KEY  (ProjektOrsId,ZarzadcaDrogisIdId)
 );
 
 -- Table: Stanowisko
@@ -68,24 +71,10 @@ CREATE TABLE Wydzial (
 CREATE TABLE ZarzadcaDrogi (
     id int  NOT NULL IDENTITY,
     Nazwa varchar(500)  NOT NULL,
-    Adres varchar(500)  NULL,
-    Dzielnica int  NULL,
     CONSTRAINT ZarzadcaDrogi_pk PRIMARY KEY  (id)
 );
 
--- Table: Zarzadca_Projekt
-CREATE TABLE Zarzadca_Projekt (
-    ProjektOR_id int  NOT NULL,
-    ZarzadcaDrogi_id int  NOT NULL,
-    CONSTRAINT Zarzadca_Projekt_pk PRIMARY KEY  (ProjektOR_id,ZarzadcaDrogi_id)
-);
-
 -- foreign keys
--- Reference: Osoba_praca_Osoba_praca (table: OsobaPraca)
-ALTER TABLE OsobaPraca ADD CONSTRAINT Osoba_praca_Osoba_praca
-    FOREIGN KEY (PrzelozonyRekurencja)
-    REFERENCES OsobaPraca (id);
-
 -- Reference: Osoba_praca_Stanowisko (table: OsobaPraca)
 ALTER TABLE OsobaPraca ADD CONSTRAINT Osoba_praca_Stanowisko
     FOREIGN KEY (Stanowisko)
@@ -105,21 +94,6 @@ ALTER TABLE ProjektOR ADD CONSTRAINT Projekt_OR_Status
 ALTER TABLE ProjektOR ADD CONSTRAINT Projekt_OR_Typ
     FOREIGN KEY (Typ)
     REFERENCES Typ (id);
-
--- Reference: Zarzadca_Projekt_ProjektOR (table: Zarzadca_Projekt)
-ALTER TABLE Zarzadca_Projekt ADD CONSTRAINT Zarzadca_Projekt_ProjektOR
-    FOREIGN KEY (ProjektOR_id)
-    REFERENCES ProjektOR (id);
-
--- Reference: Zarzadca_Projekt_ZarzadcaDrogi (table: Zarzadca_Projekt)
-ALTER TABLE Zarzadca_Projekt ADD CONSTRAINT Zarzadca_Projekt_ZarzadcaDrogi
-    FOREIGN KEY (ZarzadcaDrogi_id)
-    REFERENCES ZarzadcaDrogi (id);
-
--- Reference: kontynuowany_po_projekcie (table: ProjektOR)
-ALTER TABLE ProjektOR ADD CONSTRAINT kontynuowany_po_projekcie
-    FOREIGN KEY (KontynuowaniePoProjekcie)
-    REFERENCES ProjektOR (id);
 
 -- Reference: prowadzacy (table: ProjektOR)
 ALTER TABLE ProjektOR ADD CONSTRAINT prowadzacy

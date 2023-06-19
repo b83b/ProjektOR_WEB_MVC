@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using ProjektORWeb.Models;
+using System.ComponentModel.DataAnnotations;
 using Xunit;
 
 namespace ProjektORWeb.ViewModels
@@ -7,10 +8,11 @@ namespace ProjektORWeb.ViewModels
     public class EditPracownik
     {
         public int Id { get; set; }
-        
+
+        [MaxLength(20)]
         public string Imie { get; set; } = null!;
 
-        
+        [MaxLength(20)]
         public string Nazwisko { get; set; } = null!;
 
         
@@ -18,7 +20,7 @@ namespace ProjektORWeb.ViewModels
 
         public DateTime? DataOdejsciazPracy { get; set; }
 
-        
+        [MaxLength(3)]
         public string Symbol { get; set; } = null!;
 
         
@@ -30,13 +32,11 @@ namespace ProjektORWeb.ViewModels
         public int StanowiskoId { get; set; }
 
 
-        //public List<OsobaPraca> OsobaPracas { get; set; }
-
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public List<SelectListItem>? Stanowisko { get; set; }
 
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public List<SelectListItem>? Wydzials { get; set; }
     }
 }

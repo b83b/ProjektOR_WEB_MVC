@@ -7,9 +7,11 @@ namespace ProjektORWeb.ViewModels
     {
         
         [Required(ErrorMessage = "Pole jest wymagane")]
+        [MaxLength(20)]
         public string Imie { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
+        [MaxLength(20)]
         public string Nazwisko { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
@@ -18,6 +20,7 @@ namespace ProjektORWeb.ViewModels
         public DateTime? DataOdejsciazPracy { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
+        [MaxLength(3)]
         public string Symbol { get; set; } = null!;
 
         [Required(ErrorMessage = "Pole jest wymagane")]
@@ -29,11 +32,11 @@ namespace ProjektORWeb.ViewModels
         public int StanowiskoId { get; set; }
 
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public List<Stanowisko> Stanowiskos { get; set; }
 
 
-        //[Required(ErrorMessage = "Pole jest wymagane")]
+        
         public List<Wydzial> Wydzials { get; set; }
     }
 }

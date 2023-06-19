@@ -1,43 +1,37 @@
 ﻿@model EditProjekt
-@*@model ProjektOR  - OK bez list*@
+
 <style>
     span {
         color: #1b00ff;
     }
 </style>
-@*@{
 
-    int? idTyp = Model.ProjektORs.Typ;
-    
-
-    
-}*@
 
 <h1>Edytuj projekt organizacji ruchu</h1>
 <form method="post">
 
     <div class="input-field col s6">
-        <label for="ProjektORs.NumerProjektu">Nr projektu</label>
-        <input asp-for="ProjektORs.NumerProjektu" type="text" class="validate">
-        <span asp-validation-for="ProjektORs.NumerProjektu"></span>
+        <label for="NumerProjektu">Nr projektu</label>
+        <input asp-for="NumerProjektu" type="text" class="validate">
+        <span asp-validation-for="NumerProjektu"></span>
     </div>
 
     <div class="input-field col s6">
-        <label for="ProjektORs.Rok">Rok</label>
-        <input asp-for="ProjektORs.Rok" type="text" class="validate">
-        <span asp-validation-for="ProjektORs.Rok"></span>
+        <label for="Rok">Rok</label>
+        <input asp-for="Rok" type="text" class="validate">
+        <span asp-validation-for="Rok"></span>
     </div>
 
     <div class="input-field col s6">
-        <label for="ProjektORs.DataWplywu">Data Wpływu</label>
-        <input asp-for="ProjektORs.DataWplywu" type="date" class="validate">
-        <span asp-validation-for="ProjektORs.DataWplywu"></span>
+        <label for="DataWplywu">Data Wpływu</label>
+        <input asp-for="DataWplywu" type="date" class="validate">
+        <span asp-validation-for="DataWplywu"></span>
     </div>
 
     <div class="input-field col s6">
         <label for="ProjektORs.Uwagi">Uwagi</label>
-        <input asp-for="ProjektORs.Uwagi" type="text" class="validate">
-        <span asp-validation-for="ProjektORs.Uwagi"></span>
+        <input asp-for="Uwagi" type="text" class="validate">
+        <span asp-validation-for="Uwagi"></span>
     </div>
 
     @* LISTY*@
@@ -45,47 +39,34 @@
     <div class="input-field col s6">
         <label for="Typ">Typ</label>
         <div>
-            <select asp-for="@Model.ProjektORs.Typ" asp-items="@Model.Typ" class="validate">
-            </select>
+            <select asp-for="@Model.TypId" asp-items="@Model.Typ" class="validate"></select>
         </div>
-        <span asp-validation-for="@Model.ProjektORs.Typ"></span>
+        <span asp-validation-for="@Model.TypId"></span>
     </div>
 
 
     <div class="input-field col s6">
         <label for="OsobaProwadzaca">Osoba Prowadząca</label>
         <div>
-            <select id="OsobaProwadzaca" name="OsobaProwadzaca">
-                @foreach (var pr in Model.OsobaProwadzaca)
-                {
-                    <option value="@pr.id">@pr.Imie @pr.Nazwisko</option>
-                }
-            </select>
+            <select asp-for="@Model.OsobaProwadzacaId" asp-items="@Model.OsobaProwadzaca" class="validate"></select>
         </div>
+        <span asp-validation-for="@Model.OsobaProwadzacaId"></span>
     </div>
-
+   
     <div class="input-field col s6">
         <label for="Status">Status</label>
         <div>
-            <select id="Status" name="Status">
-                @foreach (var st in Model.Status)
-                {
-                    <option value="@st.id">@st.Nazwa</option>
-                }
-            </select>
+            <select asp-for="@Model.StatusId" asp-items="@Model.Status" class="validate"></select>
         </div>
+        <span asp-validation-for="@Model.StatusId"></span>
     </div>
 
     <div class="input-field col s6">
         <label for="OsobaZatwierdzajaca">Osoba Zatwierdzająca</label>
         <div>
-            <select id="OsobaZatwierdzajaca" name="OsobaZatwierdzajaca">
-                @foreach (var zat in Model.OsobaZatwierdzajaca)
-                {
-                    <option value="@zat.id">@zat.Imie @zat.Nazwisko</option>
-                }
-            </select>
+            <select asp-for="@Model.OsobaZatwierdzajacaId" asp-items="@Model.OsobaZatwierdzajaca" class="validate"></select>
         </div>
+        <span asp-validation-for="@Model.OsobaProwadzacaId"></span>
     </div>
 
     <div class="working-window_1">

@@ -9,10 +9,10 @@
 
 <h1>Dodaj projekt organizacji ruchu</h1>
 <form method="post">
-    
+
     <div class="input-field col s6">
-        <label for="NumerProjektu">Nr projektu</label>         
-        <input asp-for="NumerProjektu" type="text" class="validate">  
+        <label for="NumerProjektu">Nr projektu</label>
+        <input asp-for="NumerProjektu" type="text" class="validate">
         <span asp-validation-for="NumerProjektu"></span>
     </div>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="input-field col s6">
-        <label for="DataWplywu">Data Wpływu</label>       
+        <label for="DataWplywu">Data Wpływu</label>
         <input asp-for="DataWplywu" type="date" class="validate">
         <span asp-validation-for="DataWplywu"></span>
     </div>
@@ -36,24 +36,24 @@
 
     @* LISTY*@
 
-    @*<div class="input-field col s6">
+    <div class="input-field col s6">
         <label for="Typ">Typ</label>
         <div>
-            <select asp-for="TypId" class="validate">
+            <select asp-for="TypId">
                 @foreach (var t in Model.Typ)
                 {
                     <option value="@t.Id">@t.Typ</option>
                 }
-            </select>            
-        </div>  
-        <span asp-validation-for="Typ"></span>
+            </select>
+        </div>
+        
     </div>
-   
-       
+
+
     <div class="input-field col s6">
         <label for="OsobaProwadzaca">Osoba Prowadząca</label>
         <div>
-            <select asp-for="OsobaProwadzacaId" class="validate">
+            <select asp-for="OsobaProwadzacaId">
                 @foreach (var pr in Model.OsobaProwadzaca)
                 {
                     <option value="@pr.id">@pr.Imie @pr.Nazwisko</option>
@@ -63,9 +63,9 @@
     </div>
 
     <div class="input-field col s6">
-        <label for="Status">Status</label>        
+        <label for="Status">Status</label>
         <div>
-            <select asp-for="StatusId" class="validate">
+            <select asp-for="StatusId">
                 @foreach (var st in Model.Status)
                 {
                     <option value="@st.id">@st.Nazwa</option>
@@ -77,143 +77,7 @@
     <div class="input-field col s6">
         <label for="OsobaZatwierdzajaca">Osoba Zatwierdzająca</label>
         <div>
-            <select asp-for="OsobaZatwierdzajacaId" class="validate">
-                @foreach (var zat in Model.OsobaZatwierdzajaca)
-                {
-                    <option value="@zat.id">@zat.Imie @zat.Nazwisko</option>
-                }
-            </select>
-        </div>
-    </div>*@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @*<div class="input-field col s6">
-        <label for="Typ">Typ</label>
-        <div>
-            <select id="Typ" name="Typ" class="validate">
-                @foreach (var t in Model.Typ)
-                {
-                    <option value="@t.Id">@t.Typ</option>
-                }
-            </select>            
-        </div>  
-        <span asp-validation-for="Typ"></span>
-    </div>
-   
-       
-    <div class="input-field col s6">
-        <label for="OsobaProwadzaca">Osoba Prowadząca</label>
-        <div>
-            <select id="OsobaProwadzaca" name="OsobaProwadzaca">
-                @foreach (var pr in Model.OsobaProwadzaca)
-                {
-                    <option value="@pr.id">@pr.Imie @pr.Nazwisko</option>
-                }
-            </select>
-        </div>
-    </div>
-
-    <div class="input-field col s6">
-        <label for="Status">Status</label>        
-        <div>
-            <select id="Status" name="Status">
-                @foreach (var st in Model.Status)
-                {
-                    <option value="@st.id">@st.Nazwa</option>
-                }
-            </select>
-        </div>
-    </div>
-
-    <div class="input-field col s6">
-        <label for="OsobaZatwierdzajaca">Osoba Zatwierdzająca</label>
-        <div>
-            <select id="OsobaZatwierdzajaca" name="OsobaZatwierdzajaca">
-                @foreach (var zat in Model.OsobaZatwierdzajaca)
-                {
-                    <option value="@zat.id">@zat.Imie @zat.Nazwisko</option>
-                }
-            </select>
-        </div>
-    </div>*@
-
-
-    @*<div class="input-field col s6">
-        <label for="Wydzial">Wydział</label>
-        <div>
-            <select asp-for="@Model.WydzialId" asp-items="@Model.Wydzials" class="validate"></select>
-        </div>
-        <span asp-validation-for="@Model.WydzialId"></span>
-    </div>*@
-
-
-
-<div class="input-field col s6">
-        <label for="Typ">Typ</label>
-        <div>
-            <select asp-for="TypId" class="validate">
-                @foreach (var t in Model.Typ)
-            {
-                <option value="@t.Id">@t.Typ</option>
-            }
-            </select>
-        </div>  
-        <span asp-validation-for="Typ"></span>
-    </div>
-   
-       
-    <div class="input-field col s6">
-        <label for="OsobaProwadzaca">Osoba Prowadząca</label>
-        <div>
-            <select asp-for="OsobaProwadzacaId" class="validate">
-                @foreach (var pr in Model.OsobaProwadzaca)
-                {
-                    <option value="@pr.id">@pr.Imie @pr.Nazwisko</option>
-                }
-            </select>
-        </div>
-    </div>
-
-    <div class="input-field col s6">
-        <label for="Status">Status</label>        
-        <div>
-            <select asp-for="StatusId" class="validate">
-                @foreach (var st in Model.Status)
-                {
-                    <option value="@st.id">@st.Nazwa</option>
-                }
-            </select>
-        </div>
-    </div>
-
-    <div class="input-field col s6">
-        <label for="OsobaZatwierdzajaca">Osoba Zatwierdzająca</label>
-        <div>
-            <select asp-for="OsobaZatwierdzajacaId" class="validate">
+            <select asp-for="OsobaZatwierdzajacaId">
                 @foreach (var zat in Model.OsobaZatwierdzajaca)
                 {
                     <option value="@zat.id">@zat.Imie @zat.Nazwisko</option>
@@ -227,6 +91,6 @@
     <div class="working-window_1">
         <button type="submit">Zapisz</button>
         <a href="/Projektor/PokazProjekty" style="background-color: indianred">Wróć</a>
-    </div>    
+    </div>
 
 </form>

@@ -1,16 +1,18 @@
-﻿using ProjektORWeb.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ProjektORWeb.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProjektORWeb.ViewModels
 {
     public class CreateTypsStatusOsoba
     {
-        
+
         [Required(ErrorMessage = "Pole jest wymagane")]
+        [Range(1,6000)]
         public int? NumerProjektu { get; set; }
 
         [Required(ErrorMessage = "Pole jest wymagane")]
-                
+        [Range(2022, 2023)]
         public int? Rok { get; set; } 
 
         [Required(ErrorMessage = "Pole jest wymagane")]

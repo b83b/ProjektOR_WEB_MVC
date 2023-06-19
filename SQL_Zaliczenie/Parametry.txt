@@ -1,7 +1,0 @@
----BAZA----
-ProjektOR
-
----Konta_SQL---
-login - admin
-haslo - admin1
-

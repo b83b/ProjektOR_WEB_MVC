@@ -25,6 +25,9 @@ namespace ProjektORWeb.Models
         public DateTime DataWplywu { get; set; }
 
 
+        
+       
+
         [MaxLength(100)]
         public string? Uwagi { get; set; }
 
@@ -50,23 +53,13 @@ namespace ProjektORWeb.Models
         //-----RELACJE z TYPEM (1 do WIELU)-----------------------
         //FK
 
-        //[ForeignKey(nameof(Typ))]
-        //public virtual Type TypNav { get; set; }
+        
 
 
         [ForeignKey(nameof(Status))]
         public virtual Status? StatusNav { get; set; }
 
-        ////[Required(ErrorMessage = "Pole jest wymagane")]
-        //[ForeignKey(nameof(OsobaProwadzaca))]
-        //public virtual OsobaPraca? OsobaPracaProwadzaca { get; set; }
-
-
-        //[ForeignKey(nameof(OsobaZatwierdzajaca))]
-        //public virtual OsobaPraca? OsobaPracaZatwierdzajaca { get; set; }
-
-
-
+        
         //-----RELACJE z ZARZADCA(WIELE do WIELU)
         public virtual ICollection<ZarzadcaDrogi> ZarzadcaDrogisId { get; set; } //- relacja wiele do wielu ---zarzadca
 

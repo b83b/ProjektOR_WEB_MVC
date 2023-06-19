@@ -2,57 +2,9 @@
 
 <h1>Edytuj Pracownika</h1>
 
-@*<form asp-action="EditPracownik"> ===================też OK
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="id" />
-    <div class="form-group">
-        <label asp-for="Imie" class="control-label"></label>
-        <input asp-for="Imie" class="form-control" />
-        <span asp-validation-for="Imie" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Nazwisko" class="control-label"></label>
-        <input asp-for="Nazwisko" class="form-control" />
-        <span asp-validation-for="Nazwisko" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DataZatrudnienia" class="control-label"></label>
-        <input asp-for="DataZatrudnienia" class="form-control" />
-        <span asp-validation-for="DataZatrudnienia" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DataOdejsciazPracy" class="control-label"></label>
-        <input asp-for="DataOdejsciazPracy" class="form-control" />
-        <span asp-validation-for="DataOdejsciazPracy" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Symbol" class="control-label"></label>
-        <input asp-for="Symbol" class="form-control" />
-        <span asp-validation-for="Symbol" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Wydzial" class="control-label"></label>
-        <input asp-for="Wydzial" class="form-control" />
-        <span asp-validation-for="Wydzial" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Stanowisko" class="control-label"></label>
-        <input asp-for="Stanowisko" class="form-control" />
-        <span asp-validation-for="Stanowisko" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email" class="control-label"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
 
-    <div class="working-window_1">
-        <button type="submit">Zapisz</button>
-        <a href="/Projektor/PokazPracownikow" style="background-color: indianred">Wróć</a>
-    </div>
-</form>*@
 
-@*============================*@
+
 <form method="post">
 
     <div class="input-field col s6">
@@ -87,7 +39,7 @@
 
     <div class="input-field col s6">
         <label for="Email">Email</label>
-        <input asp-for="Email" type="text" class="validate">
+        <input asp-for="Email" type="email" class="validate">
         <span asp-validation-for="Email"></span>
     </div>
 
